@@ -93,7 +93,7 @@ echo " " >> /etc/bind/zones/db.$domain_name
 echo "ns  IN A  $local_ip" >> /etc/bind/zones/db.$domain_name
 echo "www  IN A  $local_ip" >> /etc/bind/zones/db.$domain_name
 
-sudo truncate -s 0 /etc/bind/zones/db.$ip_reverse_zone # Borramos lo que tenga el fichero
+sudo truncate -s 0 /etc/bind/zones/db.$ip_reverse_zone
 
 echo "\$TTL	604800" >> /etc/bind/zones/db.$ip_reverse_zone
 echo "@	IN SOA $domain_name. admin.$domain_name. (" >> /etc/bind/zones/db.$ip_reverse_zone

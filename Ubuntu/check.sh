@@ -30,4 +30,5 @@ get_last_byte(){
         return 1
     fi
 }
-sudo mkdir /etc/bind/zonzos
+jdk_route=$(update-java-alternatives -l | grep openjdk | awk '{print $3}')
+echo $testeo

@@ -13,12 +13,14 @@ function ip_root {
 function get_all_adapters{
     Get-NetAdapter | Select-Object -ExpandProperty Name
 }
-$ips = "192.168.1.5"
-try {
-    Write-Host $(ip_default_gateway($ips)) $(ip_root($ips))
+function get_all_zones(){
+    return (Get-DnsServerZone | Select-Object -ExpandProperty ZoneName)
+
 }
-catch {
-    <#Do this if a terminating exception happens#>
-    Write-Host "wew"
-    Write-Host $_.Exception.Message
+$zones =get_all_zones
+for ($i = 0; $i -lt $zones.Count; $i++) {
+    <# Action that will repeat until the condition is met #>
+    Write-Host "$i.- $($zones[$i])"
 }
+$choise = Read-Host
+Write-Host $zones[$choise]

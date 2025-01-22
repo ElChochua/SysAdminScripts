@@ -84,8 +84,8 @@ if($adapters -ne $null){
     
     }
     catch {
-        Write-Host "Error al agregar servidor DNS"
-        Write-Host $_.Exception.Message
+        Write-Host "Error al agregar servidor DNS" -ForegroundColor Red
+        Write-Host $_.Exception.Message -ForegroundColor Red
     }
 }else{
     Write-Host "NO SE ENCONTRARON ADAPADORES REVISE SUS CONEXIONES"

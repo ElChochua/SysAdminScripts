@@ -13,8 +13,11 @@ function ip_root {
 function get_all_adapters {
     Get-NetAdapter | Select-Object -ExpandProperty Name
 }
-Install-WindowsFeature DHCP -IncludeManagementTools
-Clear-Host
+function get_adapter_ip{
+    param($adapter)
+    return (Get-NetIPAddress -AddressFamily IPv4 -InterfaceAlias $adapter).IPAddress
+}
+Install-WindowsFeature -Name DHCP -IncludeManagementTools
 #Install-ADDSForest -DomainName YOURDOMAINHERE -InstallDNS
 $adapters = get_all_adapters
 if ($adapters -ne $null) {
@@ -36,19 +39,21 @@ if ($adapters -ne $null) {
     $initial_range = Read-Host "Ingresa el rango inicial"
     $final_range = Read-Host "Ingresa el rango final"
     $netmask = Read-Host "Ingresa la mascara de la red"
-    
+    $adapter_ip = get_adapter_ip($adapters[$option])
+    Write-Host $adapter_ip
+    Write-Host $root_ip
     try {
         Add-DhcpServerv4Scope -Name $dhcp_name -StartRange $initial_range -EndRange $final_range -SubnetMask $netmask -State Active
         Set-DhcpServerv4OptionValue -ScopeId $root_ip -OptionId 3 -Value $default_gateway
-        Set-DhcpServerv4OptionValue -ScopeId $root_ip -OptionId 6 -Value  8.8.8.8,8.8.4.4
+        Set-DhcpServerv4OptionValue -ScopeId $root_ip -OptionId 6 -Value  $adapter_ip -Force
         Get-Service DHCPServer
-        Write-Host "DHCP agregado con exito"
+        Write-Host "DHCP agregado con exito" -ForegroundColor Green
         Get-DhcpServerv4Scope
     }
     catch {
         <#Do this if a terminating exception happens#>
-        Write-Host "Error al crear DHCP"
-        Write-Host $_.Exception.Message
+        Write-Host "Error al crear DHCP" -ForegroundColor Red
+        Write-Host $_.Exception.Message -ForegroundColor Red
     }
 }
 else {
