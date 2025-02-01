@@ -30,5 +30,4 @@ get_last_byte(){
         return 1
     fi
 }
-jdk_route=$(update-java-alternatives -l | grep openjdk | awk '{print $3}')
-echo $testeo
+    sudo sed -i '9i\       ServerName correo.chochua.local' /etc/apache2/sites-available/round.conf

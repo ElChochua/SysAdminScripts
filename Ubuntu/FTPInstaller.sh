@@ -23,10 +23,6 @@ echo "xferlog_enable=YES" >> /etc/vsftpd.conf
 echo "connect_from_port_20=YES" >> /etc/vsftpd.conf
 echo "secure_chroot_dir=/var/run/vsftpd/empty" >> /etc/vsftpd.conf
 echo "pam_service_name=vsftpd" >> /etc/vsftpd.conf
-echo "rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem" >> /etc/vsftpd.conf
-echo "rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key" >> /etc/vsftpd.conf
-echo "ssl_enable=NO" >> /etc/vsftpd.conf
-
 
 read -p "Ingresa el nombre para el grupo A " groupA_name
 sudo groupadd $groupA_name
@@ -41,7 +37,7 @@ sudo chgrp  $groupA_name /home/$groupA_name
 sudo chgrp  $groupB_name /home/$groupB_name
 sudo chown :$groupA_name /home/$groupA_name
 sudo chown :$groupB_name /home/$groupB_name
-
+groups=($groupA_name $groupB_name)
 read -p "Numero de usuarios a agregar: " user_count
 for ((i=1; i<=$user_count; i++))
 do
@@ -49,7 +45,15 @@ do
     read -p "$i. Ingresa la contraseña: " -s user_password
     sudo useradd -m $user_name
     echo "$user_name:$user_password" | sudo chpasswd
-    read -p "$i. Ingresa el grupo al que pertenece: " user_group
+    while true; do
+    read -p "$i. Ingresa el grupo al que pertenece: 0.-${groups[0]} 1.-${groups[1]}" option
+    if(($option == 0)) || (($option == 1));then
+        user_group=${groups[$option]}
+        break
+    else
+        echo "Eliga una opcion valida"
+    fi
+    done
     sudo usermod -a -G $user_group $user_name
 
     sudo mkdir /home/$user_name/General
@@ -64,6 +68,9 @@ do
     sudo mount --bind /home/FTP/$mainFolder /home/$user_name/General
     sudo mount --bind /home/$user_group /home/$user_name/$user_group
 done
-
+read -p "Deseas agregar SSL a tu servidor FTP? (y/n): " ssl
+if [ "$ssl" != "N" ] && [ "$ssl" != "n" ]; then
+    source /media/sf_shared/SSLFtp.sh
+fi
 sudo systemctl restart vsftpd
 sudo systemctl status vsftpd

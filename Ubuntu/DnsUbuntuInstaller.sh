@@ -77,6 +77,7 @@ echo '  ' file \"/etc/bind/zones/db.$ip_reverse_zone\"\; >> /etc/bind/named.conf
 echo }\; >> /etc/bind/named.conf.local
 last_byte=$(get_last_byte $(ip -4 addr show enp0s8 | grep -oP '(?<=inet\s)\d+\.\d+\.\d+\.\d+'))
 local_ip=$(ip -4 addr show enp0s8 | grep -oP '(?<=inet\s)\d+\.\d+\.\d+\.\d+')
+sudo truncate -s 0 /etc/bind/zones/db.$domain_name
 
 echo "\$TTL	604800" >> /etc/bind/zones/db.$domain_name
 echo "@	IN 			SOA $domain_name. admin.$domain_name. (" >> /etc/bind/zones/db.$domain_name
