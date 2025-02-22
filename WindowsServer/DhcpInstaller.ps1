@@ -1,22 +1,4 @@
-function ip_default_gateway {
-    param($ip)
-    $ip = $ip -split "\."
-    $ip[3] = 1
-    $ip -join "."
-}
-function ip_root {
-    param($ip)
-    $ip = $ip -split "\."
-    $ip[3] = 0
-    $ip -join "."
-}
-function get_all_adapters {
-    Get-NetAdapter | Select-Object -ExpandProperty Name
-}
-function get_adapter_ip{
-    param($adapter)
-    return (Get-NetIPAddress -AddressFamily IPv4 -InterfaceAlias $adapter).IPAddress
-}
+Import-Module .\Functions.psm1
 Install-WindowsFeature -Name DHCP -IncludeManagementTools
 #Install-ADDSForest -DomainName YOURDOMAINHERE -InstallDNS
 $adapters = get_all_adapters

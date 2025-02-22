@@ -1,36 +1,4 @@
-function get_all_adapters {
-    Get-NetAdapter | Select-Object -ExpandProperty Name
-}
-function get_adapter_ip_addresss{
-    param($adapter_name)
-    return (Get-NetIPAddress | Where-Object {$_.InterfaceAlias -eq $adapter_name}).IPAddress[1]
-}
-function ip_default_gateway {
-    param($ip)
-    $ip = $ip -split "\."
-    $ip[3] = 1
-    $ip -join "."
-}
-function ip_root {
-    param($ip)
-    $ip = $ip -split "\."
-    $ip[3] = 0
-    $ip -join "."
-}
-function get_last_octet{
-    param($ip)
-    $ip = $ip -split "\."
-    $octeto = $ip[3]
-    return $octeto 
-}
-function reverse_ip {
-    param($ip)
-    $IPBytes = [System.Net.IPAddress]::Parse($ip).GetAddressBytes()
-    $IPBytes = $IPBytes[0..($IPBytes.Length - 2)] 
-    [Array]::Reverse($IPBytes)  
-    $IPBytes -join '.'
-}
-
+Import-Module .\Functions.psm1
 $adapters = get_all_adapters
 Install-WindowsFeature -Name DNS -IncludeManagementTools
 Install-WindowsFeature -NAME RSAT-DNS-Server

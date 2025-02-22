@@ -1,33 +1,4 @@
-reverse_ip() {
-    local ip=$1
-    if [[ "$ip" =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
-        byte=( ${ip//./ } )
-        echo "${byte[3]}.${byte[2]}.${byte[1]}.${byte[0]}"
-    else
-        echo "Error: Dirección IP inválida"
-        return 1
-    fi
-}
-remove_last_byte_and_rev(){
-    local ip=$1
-    if [[ "$ip" =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
-        byte=( ${ip//./ } )
-        echo "${byte[2]}.${byte[1]}.${byte[0]}"
-    else
-        echo "Error: Dirección IP inválida"
-        return 1
-    fi
-}
-get_last_byte(){
-    local ip=$1
-    if [[ "$ip" =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
-        byte=( ${ip//./ } )
-        echo "${byte[3]}"
-    else
-        echo "Error: Dirección IP inválida"
-        return 1
-    fi
-}
+source /media/sf_shared/Funciones.sh
 sudo apt-get update -y
 sudo apt install bind9 bind9-utils -y
 echo "Dando permisos a Bind9"

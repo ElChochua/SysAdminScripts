@@ -1,14 +1,4 @@
-function Get-IP-Address{
-    return (Get-NetIPAddress -AddressFamily IPv4 -InterfaceAlias Ethernet).IPAddress
-}
-function Port-Is-Open{
-    param($port)
-    return (Test-NetConnection -ComputerName $env:COMPUTERNAME -Port $port -InformationLevel Quiet)
-}
-function Get-All-Zones(){
-    return (Get-DnsServerZone | Select-Object -ExpandProperty ZoneName)
-
-}
+Import-Module .\Functions.psm1
 $available_zones = Get-All-Zones
 Clear-Host
 Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
