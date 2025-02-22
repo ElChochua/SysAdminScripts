@@ -65,7 +65,7 @@ if($adapters -ne $null){
     $reversed = reverse_ip($IPV4Address)
     $zone_name = Read-Host "Ingresa el nombre de tu zona  EJ. example.local"
     $zone_file = Read-Host "Ingresa el nombre del archivo donde guardaras los datos de zona EJ. example.local.dns"
-    $server_name = Read-Host "Ingresa el Nombre del Servidor EJ. server1"
+    $server_name = Read-Host "Ingresa el Nombre del Servidor EJ. www"
     $DNS_Point_IP = Read-Host "Ingresa la IP a la que apuntara el registro"
     $last_octet = get_last_octet($DNS_Point_IP)
     try {

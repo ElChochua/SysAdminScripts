@@ -1,33 +1,6 @@
 #!/bin/bash
-reverse_ip() {
-    local ip=$1
-    if [[ "$ip" =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
-        octetos=( ${ip//./ } )
-        echo "${octetos[3]}.${octetos[2]}.${octetos[1]}.${octetos[0]}"
-    else
-        echo "Error: Dirección IP inválida"
-        return 1
-    fi
-}
-remove_last_byte_and_rev(){
-    local ip=$1
-    if [[ "$ip" =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
-        byte=( ${ip//./ } )
-        echo "${byte[2]}.${byte[1]}.${byte[0]}"
-    else
-        echo "Error: Dirección IP inválida"
-        return 1
-    fi
-}
 
-get_last_byte(){
-    local ip=$1
-    if [[ "$ip" =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
-        byte=( ${ip//./ } )
-        echo "${byte[3]}"
-    else
-        echo "Error: Dirección IP inválida"
-        return 1
-    fi
-}
-    sudo sed -i '9i\       ServerName correo.chochua.local' /etc/apache2/sites-available/round.conf
+sudo sed -i '/^mail_location = mbox:\/mail:INBOX=\/var\/mail\/%u/d' /etc/dovecot/conf.d/10-mail.conf
+sudo echo "mail_location = maildir:\/Maildir/' /etc/dovecot/conf.d/10-mail.conf" | sudo tee -a /etc/dovecot/conf.d/10-mail.conf
+sudo echo "home_mailbox = Maildir/" | sudo tee -a /etc/postfix/main.cf
+sudo echo "mailbox_command =" | sudo tee -a /etc/postfix/main.cf

@@ -28,9 +28,8 @@ get_last_byte(){
         return 1
     fi
 }
-if ! apt list --installed 2>/dev/null | greb -qw "bind9";then
-sudo apt install bind9 bind9-utils
-fi
+sudo apt-get update -y
+sudo apt install bind9 bind9-utils -y
 echo "Dando permisos a Bind9"
 sudo ufw allow bind9
 read -p "Ingrese la direccion IP raiz: " root_ip
@@ -90,9 +89,9 @@ echo ";" >> /etc/bind/zones/db.$domain_name
 echo " " >> /etc/bind/zones/db.$domain_name
 echo "@  IN NS  $domain_name." >> /etc/bind/zones/db.$domain_name
 echo "@  IN A  $local_ip" >> /etc/bind/zones/db.$domain_name
-echo " " >> /etc/bind/zones/db.$domain_name
 echo "ns  IN A  $local_ip" >> /etc/bind/zones/db.$domain_name
 echo "www  IN A  $local_ip" >> /etc/bind/zones/db.$domain_name
+echo "server  IN CNAME  $domain_name." >> /etc/bind/zones/db.$domain_name
 
 sudo truncate -s 0 /etc/bind/zones/db.$ip_reverse_zone
 
@@ -106,7 +105,7 @@ echo "			 604800 )		; Negative Cache TTL" >> /etc/bind/zones/db.$ip_reverse_zone
 echo ";" >> /etc/bind/zones/db.$ip_reverse_zone
 echo " " >> /etc/bind/zones/db.$ip_reverse_zone
 echo "  IN NS  $domain_name." >> /etc/bind/zones/db.$ip_reverse_zone
-echo $last_byte" IN PTR  www.$domain_name" >> /etc/bind/zones/db.$ip_reverse_zone
+echo $last_byte" IN PTR  server.$domain_name" >> /etc/bind/zones/db.$ip_reverse_zone
 
 sudo systemctl restart named
 sudo systemctl restart bind9
