@@ -64,6 +64,39 @@ function Get-All-Zones(){
     return (Get-DnsServerZone | Select-Object -ExpandProperty ZoneName)
 
 }
+function valdiate-username{
+    param($user)
+    if ($user -match "^[a-zA-Z0-9_]{3,16}$"){
+        return $true
+    }
+    return $false
+}
+function user-exists{
+    param($user)
+    $users = Get-LocalUser
+    if (Get-LocalUser -Name $user -ErrorAction SilentlyContinue){
+        return $true
+    }
+    return $false
+}
+function validate-password{
+    param($password)
+    if ($password -match "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"){
+        return $true
+    }
+    return $false
+}
+function user-is-not-in-groups{
+    param($userName)
+    $userGroups = (Get-LocalGroupMember -Group "reprobados" -ErrorAction SilentlyContinue | Where-Object { $_.Name -match $userName }) + 
+              (Get-LocalGroupMember -Group "recursados" -ErrorAction SilentlyContinue | Where-Object { $_.Name -match $userName })
+
+    if ($userGroups.Count -eq 0) {
+        return $true
+    }
+return $false
+}
+
 Export-ModuleMember -Function saludar
 Export-ModuleMember -Function get_all_adapters
 Export-ModuleMember -Function get_adapter_ip
@@ -75,4 +108,8 @@ Export-ModuleMember -Function reverse_ip
 Export-ModuleMember -Function Get-IP-Address
 Export-ModuleMember -Function Port-Is-Open
 Export-ModuleMember -Function Get-All-Zones
+Export-ModuleMember -Function valdiate-username
+Export-ModuleMember -Function user-exists
+Export-ModuleMember -Function validate-password
+Export-ModuleMember -Function user-is-not-in-groups
 

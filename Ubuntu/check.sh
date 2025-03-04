@@ -1,5 +1,9 @@
 #!/bin/bash
-source /media/sf_shared/Funciones.sh
-root_ip="192.168.1.10"
-ip_reverse_zone=$(remove_last_byte_and_rev $root_ip)
-echo $ip_reverse_zone
+source /media/sf_Ubuntu/Functions.sh
+read -p "user" user
+read -p "group" group
+if user_in_other_group "$user" "$group"; then
+    echo "⚠️ El usuario '$user' ya pertenece a otro grupo diferente a '$group'."
+else
+    echo "✅ El usuario puede ser registrado en '$group'."
+fi

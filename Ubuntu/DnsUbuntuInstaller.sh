@@ -1,4 +1,4 @@
-source /media/sf_shared/Funciones.sh
+source /media/sf_Ubuntu/Functions.sh
 sudo apt-get update -y
 sudo apt install bind9 bind9-utils -y
 echo "Dando permisos a Bind9"

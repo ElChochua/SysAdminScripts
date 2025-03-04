@@ -1,76 +1,124 @@
 #!/bin/bash
-sudo apt install vsftpd
+#sudo apt install vsftpd
+source /media/sf_Ubuntu/Functions.sh
+
 clear
-sudo mkdir /home/FTP
+sudo mkdir -p /home/FTP  2>/dev/null
 sudo chmod -R 755 /home/FTP
-read -p "Ingresa el nombre de la carpeta principal: " mainFolder
-sudo mkdir /home/FTP/$mainFolder
-sudo chmod -R 777 /home/FTP/$mainFolder
+sudo mkdir -p /home/FTP/General  2>/dev/null
+sudo chmod -R 777 /home/FTP/General
 
 sudo truncate -s 0 /etc/vsftpd.conf
-echo "listen=NO" >> /etc/vsftpd.conf
-echo "listen_ipv6=YES" >> /etc/vsftpd.conf
-echo "anonymous_enable=YES" >> /etc/vsftpd.conf
-echo "anon_root=/home/FTP" >> /etc/vsftpd.conf
-echo "anon_upload_enable=NO" >> /etc/vsftpd.conf
-echo "write_enable=YES" >> /etc/vsftpd.conf
-echo "local_enable=YES" >> /etc/vsftpd.conf
-echo "chroot_local_user=YES" >> /etc/vsftpd.conf
-echo "allow_writeable_chroot=YES" >> /etc/vsftpd.conf
-echo "dirmessage_enable=YES" >> /etc/vsftpd.conf
-echo "use_localtime=YES" >> /etc/vsftpd.conf
-echo "xferlog_enable=YES" >> /etc/vsftpd.conf
-echo "connect_from_port_20=YES" >> /etc/vsftpd.conf
-echo "secure_chroot_dir=/var/run/vsftpd/empty" >> /etc/vsftpd.conf
-echo "pam_service_name=vsftpd" >> /etc/vsftpd.conf
+{
+    echo "listen=NO"
+    echo "listen_ipv6=YES"
+    echo "anonymous_enable=YES"
+    echo "anon_root=/home/FTP"
+    echo "anon_upload_enable=NO"
+    echo "write_enable=YES"
+    echo "local_enable=YES"
+    echo "chroot_local_user=YES"
+    echo "allow_writeable_chroot=YES"
+    echo "dirmessage_enable=YES"
+    echo "use_localtime=YES"
+    echo "xferlog_enable=YES"
+    echo "connect_from_port_20=YES"
+    echo "secure_chroot_dir=/var/run/vsftpd/empty"
+    echo "pam_service_name=vsftpd"
+} >> /etc/vsftpd.conf
 
-read -p "Ingresa el nombre para el grupo A " groupA_name
-sudo groupadd $groupA_name
-sudo mkdir /home/$groupA_name
+groupA_name="reprobados"
+groupB_name="recursadores"
 
-read -p "Ingresa el nombre para el grupo B " groupB_name
-sudo groupadd $groupB_name
-sudo mkdir /home/$groupB_name
+sudo groupadd $groupA_name  2>/dev/null
+sudo mkdir -p /home/$groupA_name 2>/dev/null
+sudo groupadd $groupB_name 2>/dev/null
+sudo mkdir -p /home/$groupB_name 2>/dev/null
 sudo chmod 770 /home/$groupA_name
 sudo chmod 770 /home/$groupB_name
-sudo chgrp  $groupA_name /home/$groupA_name
-sudo chgrp  $groupB_name /home/$groupB_name
+sudo chgrp $groupA_name /home/$groupA_name
+sudo chgrp $groupB_name /home/$groupB_name
 sudo chown :$groupA_name /home/$groupA_name
 sudo chown :$groupB_name /home/$groupB_name
 groups=($groupA_name $groupB_name)
-read -p "Numero de usuarios a agregar: " user_count
-for ((i=1; i<=$user_count; i++))
-do
-    read -p "$i. Ingresa el nombre del usuario: " user_name
-    read -p "$i. Ingresa la contraseña: " -s user_password
-    sudo useradd -m $user_name
-    echo "$user_name:$user_password" | sudo chpasswd
-    while true; do
-    read -p "$i. Ingresa el grupo al que pertenece: 0.-${groups[0]} 1.-${groups[1]}" option
-    if(($option == 0)) || (($option == 1));then
-        user_group=${groups[$option]}
-        break
-    else
-        echo "Eliga una opcion valida"
-    fi
-    done
-    sudo usermod -a -G $user_group $user_name
 
-    sudo mkdir /home/$user_name/General
-    sudo mkdir /home/$user_name/Personal
-    sudo mkdir /home/$user_name/$user_group
-    sudo chmod 775 /home/$user_name/General
-    sudo chmod 700 /home/$user_name/Personal
-    sudo chmod 775 /home/$user_name/$user_group
-    sudo chown $user_name:$user_name /home/$user_name/General
-    sudo chown $user_name:$user_name /home/$user_name/Personal
-    sudo chown $user_name:$user_group /home/$user_name/$user_group
-    sudo mount --bind /home/FTP/$mainFolder /home/$user_name/General
-    sudo mount --bind /home/$user_group /home/$user_name/$user_group
+read -p "Número de usuarios a agregar: " user_count
+
+for ((i = 1; i <= user_count; i++)); do
+    while true; do
+        read -p "$i. Ingresa el nombre del usuario: " user_name
+        
+        if validate_userName "$user_name" && ! user_exists "$user_name"; then
+            
+            echo -e "\nGrupos disponibles \n0.-${groups[0]}\n1.-${groups[1]}"
+            read -p "$i. Elija el grupo al que pertenece: " option
+
+            if [[ "$option" =~ ^[0-1]$ ]]; then
+                user_group=${groups[$option]}
+
+                if user_in_reprobados_o_recursados "$user_name"; then
+                    echo "El usuario ya pertenece a 'reprobados' o 'recursados'. Se omitirá."
+                else
+                    read -s -p "$i. Ingresa la contraseña: " user_password
+                    echo ""
+                    sudo useradd -m "$user_name"
+                    echo "$user_name:$user_password" | sudo chpasswd
+                    sudo usermod -a -G "$user_group" "$user_name"
+
+                    sudo mkdir -p "/home/$user_name/General" "/home/$user_name/Personal" "/home/$user_name/$user_group"
+
+                    sudo chmod 775 "/home/$user_name/General"
+                    sudo chmod 700 "/home/$user_name/Personal"
+                    sudo chmod 775 "/home/$user_name/$user_group"
+
+                    sudo chown "$user_name:$user_name" "/home/$user_name/General" "/home/$user_name/Personal"
+                    sudo chown "$user_name:$user_group" "/home/$user_name/$user_group"
+
+                    # Montar directorios compartidos
+                    sudo mount --bind "/home/FTP/General" "/home/$user_name/General"
+                    sudo mount --bind "/home/$user_group" "/home/$user_name/$user_group"
+
+                    echo "Usuario '$user_name' creado y asignado al grupo '$user_group'."
+                fi
+            else
+                echo "Elija una opción válida"
+            fi
+            break
+        elif user_exists "$user_name"; then
+            echo "El usuario '$user_name' ya existe."
+                        echo "El usuario ya existe"
+            if ! user_in_reprobados_o_recursados "$user_name"; then
+                echo -e "\nEl usuario no pertenece a ninguno de los grupos válidos."
+                echo -e "\nGrupos disponibles \n0.-${groups[0]}\n1.-${groups[1]}"
+                read -p "$i. Elija el grupo al que desea agregarlo: " option
+                if [[ "$option" =~ ^[0-1]$ ]]; then
+                    user_group=${groups[$option]}
+                    sudo usermod -a -G "$user_group" "$user_name"
+                    sudo mkdir -p "/home/$user_name/General" "/home/$user_name/Personal" "/home/$user_name/$user_group"
+                    sudo chmod 775 "/home/$user_name/General"
+                    sudo chmod 700 "/home/$user_name/Personal"
+                    sudo chmod 775 "/home/$user_name/$user_group"
+                    sudo chown "$user_name:$user_name" "/home/$user_name/General" "/home/$user_name/Personal"
+                    sudo chown "$user_name:$user_group" "/home/$user_name/$user_group"
+                    sudo mount --bind "/home/FTP/General" "/home/$user_name/General"
+                    sudo mount --bind "/home/$user_group" "/home/$user_name/$user_group"
+                    echo "Usuario '$user_name' agregado al grupo '$user_group'."
+                else
+                    echo "Elija una opción válida."
+                fi
+            fi
+            break
+        else
+            echo "Nombre de usuario inválido"
+        fi
+    done
 done
+
+
 read -p "Deseas agregar SSL a tu servidor FTP? (y/n): " ssl
 if [ "$ssl" != "N" ] && [ "$ssl" != "n" ]; then
     source /media/sf_shared/SSLFtp.sh
 fi
+
 sudo systemctl restart vsftpd
 sudo systemctl status vsftpd

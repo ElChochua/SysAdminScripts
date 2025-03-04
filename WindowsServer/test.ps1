@@ -1,2 +1,3 @@
 Import-Module .\Functions.psm1
-saludar "Webos"
+$ips = get-all-ip-addresses
+Write-Host "IPs: $ips"
