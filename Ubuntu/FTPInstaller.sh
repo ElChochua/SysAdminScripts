@@ -67,16 +67,16 @@ for ((i = 1; i <= user_count; i++)); do
 
                     sudo mkdir -p "/home/$user_name/General" "/home/$user_name/Personal" "/home/$user_name/$user_group"
 
-                    sudo chmod 775 "/home/$user_name/General"
+                    sudo chmod -R 775 "/home/$user_name/General"
                     sudo chmod 700 "/home/$user_name/Personal"
-                    sudo chmod 775 "/home/$user_name/$user_group"
+                    sudo chmod 700 "/home/$user_name/$user_group"
 
                     sudo chown "$user_name:$user_name" "/home/$user_name/General" "/home/$user_name/Personal"
                     sudo chown "$user_name:$user_group" "/home/$user_name/$user_group"
 
                     # Montar directorios compartidos
-                    sudo mount --bind "/home/FTP/General" "/home/$user_name/General"
-                    sudo mount --bind "/home/$user_group" "/home/$user_name/$user_group"
+                    sudo mount --rbind  "/home/FTP/General" "/home/$user_name/General"
+                    sudo mount --rbind  "/home/$user_group" "/home/$user_name/$user_group"
 
                     echo "Usuario '$user_name' creado y asignado al grupo '$user_group'."
                 fi
