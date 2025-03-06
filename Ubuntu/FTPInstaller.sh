@@ -7,10 +7,10 @@ sudo mkdir -p /home/FTP 2>/dev/null
 sudo chmod -R 755 /home/FTP
 sudo mkdir -p /home/FTP/General 2>/dev/null
 
-# Crear un grupo común para todos los usuarios FTP
+# Crear un grupo compartido para los usuarios de FTP
 sudo groupadd ftpusers 2>/dev/null
 sudo chgrp ftpusers /home/FTP/General
-# Establecer SGID bit y permisos completos para que todos los usuarios puedan crear y acceder
+# Permitir a los usuarios del grupo ftpusers escribir en el directorio General
 sudo chmod 2777 /home/FTP/General
 
 sudo truncate -s 0 /etc/vsftpd.conf
@@ -30,7 +30,7 @@ sudo truncate -s 0 /etc/vsftpd.conf
     echo "connect_from_port_20=YES"
     echo "secure_chroot_dir=/var/run/vsftpd/empty"
     echo "pam_service_name=vsftpd"
-    echo "local_umask=002"  # Asegura que los archivos creados tengan permisos 664 y directorios 775
+    echo "local_umask=022"  # 022 para que los archivos creados tengan permisos 755
 } >> /etc/vsftpd.conf
 
 groupA_name="reprobados"
@@ -41,14 +41,29 @@ sudo mkdir -p /home/$groupA_name 2>/dev/null
 sudo groupadd $groupB_name 2>/dev/null
 sudo mkdir -p /home/$groupB_name 2>/dev/null
 
-# Establecer SGID y permisos apropiados en las carpetas de grupos
-sudo chmod 2770 /home/$groupA_name
-sudo chmod 2770 /home/$groupB_name
+# Establecer permisos apropiados en las carpetas de grupos - 
+# 1775 permite a todos los del grupo crear archivos en el directorio raíz
+# pero no modificar carpetas de otros usuarios
+sudo chmod 1775 /home/$groupA_name
+sudo chmod 1775 /home/$groupB_name
 sudo chgrp $groupA_name /home/$groupA_name
 sudo chgrp $groupB_name /home/$groupB_name
 sudo chown :$groupA_name /home/$groupA_name
 sudo chown :$groupB_name /home/$groupB_name
 groups=($groupA_name $groupB_name)
+
+# Crear un script hook para ajustar los permisos de los directorios creados por los usuarios y asignarlos a sus respectivos grupos
+sudo cat <<EOF > /etc/vsftpd.hook
+#!/bin/bash
+# Este script ajusta los permisos de los directorios creados en las carpetas de grupo
+find /home/reprobados -mindepth 1 -maxdepth 1 -type d -exec chmod 755 {} \;
+find /home/recursadores -mindepth 1 -maxdepth 1 -type d -exec chmod 755 {} \;
+EOF
+
+sudo chmod +x /etc/vsftpd.hook
+
+# Agregar el script hook al cron para que se ejecute cada 5 minutos para ajustar los permisos
+(crontab -l 2>/dev/null; echo "*/5 * * * * /etc/vsftpd.hook") | sort | uniq | crontab -
 
 read -p "Número de usuarios a agregar: " user_count
 
@@ -72,7 +87,7 @@ for ((i = 1; i <= user_count; i++)); do
                     sudo useradd -m "$user_name"
                     echo "$user_name:$user_password" | sudo chpasswd
                     sudo usermod -a -G "$user_group" "$user_name"
-                    # Agregar el usuario al grupo ftpusers
+                    # Agregamos al grupo intermedio
                     sudo usermod -a -G "ftpusers" "$user_name"
 
                     sudo mkdir -p "/home/$user_name/General" "/home/$user_name/Personal" "/home/$user_name/$user_group"
@@ -126,6 +141,9 @@ for ((i = 1; i <= user_count; i++)); do
         fi
     done
 done
+
+# Ejecutar el hook una vez para ajustar permisos iniciales
+sudo /etc/vsftpd.hook
 
 read -p "Deseas agregar SSL a tu servidor FTP? (y/n): " ssl
 if [ "$ssl" != "N" ] && [ "$ssl" != "n" ]; then
