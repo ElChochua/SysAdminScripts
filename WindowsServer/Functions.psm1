@@ -60,6 +60,13 @@ function Port-Is-Open{
     param($port)
     return (Test-NetConnection -ComputerName $env:COMPUTERNAME -Port $port -InformationLevel Quiet)
 }
+function Port-Is-Valid{
+    param($port)
+    if ($port -ge 1 -and $port -le 65535){
+        return $true
+    }
+    return $false
+}
 function Get-All-Zones(){
     return (Get-DnsServerZone | Select-Object -ExpandProperty ZoneName)
 
@@ -107,9 +114,9 @@ Export-ModuleMember -Function get_last_octet
 Export-ModuleMember -Function reverse_ip
 Export-ModuleMember -Function Get-IP-Address
 Export-ModuleMember -Function Port-Is-Open
+Export-ModuleMember -Function Port-Is-Valid
 Export-ModuleMember -Function Get-All-Zones
 Export-ModuleMember -Function valdiate-username
 Export-ModuleMember -Function user-exists
 Export-ModuleMember -Function validate-password
 Export-ModuleMember -Function user-is-not-in-groups
-
