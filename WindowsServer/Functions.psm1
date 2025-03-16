@@ -1,122 +1,340 @@
-function ip_default_gateway {
-    param($ip)
-    $ip = $ip -split "\."
-    $ip[3] = 1
-    $ip -join "."
-}
-function ip_root {
-    param($ip)
-    $ip = $ip -split "\."
-    $ip[3] = 0
-    $ip -join "."
-}
-function get_all_adapters {
-    Get-NetAdapter | Select-Object -ExpandProperty Name
-}
-function get_adapter_ip{
-    param($adapter)
-    return (Get-NetIPAddress -AddressFamily IPv4 -InterfaceAlias $adapter).IPAddress
-}
-function saludar{
+function saludar {
     param ([string]$nombre)
     Write-Host "Hola $nombre"
 }
+
 function get_all_adapters {
     Get-NetAdapter | Select-Object -ExpandProperty Name
 }
-function get_adapter_ip_addresss{
-    param($adapter_name)
-    return (Get-NetIPAddress | Where-Object {$_.InterfaceAlias -eq $adapter_name}).IPAddress[1]
+
+function get_adapter_ip {
+    param($adapter)
+    return (Get-NetIPAddress -AddressFamily IPv4 -InterfaceAlias $adapter).IPAddress
 }
+
 function ip_default_gateway {
     param($ip)
     $ip = $ip -split "\."
     $ip[3] = 1
     $ip -join "."
 }
+
 function ip_root {
     param($ip)
     $ip = $ip -split "\."
     $ip[3] = 0
     $ip -join "."
 }
-function get_last_octet{
+
+function get_adapter_ip_address {
+    param($adapter_name)
+    return (Get-NetIPAddress | Where-Object { $_.InterfaceAlias -eq $adapter_name }).IPAddress[1]
+}
+
+function get_last_octet {
     param($ip)
     $ip = $ip -split "\."
-    $octeto = $ip[3]
-    return $octeto 
+    return $ip[3]
 }
+
 function reverse_ip {
     param($ip)
     $IPBytes = [System.Net.IPAddress]::Parse($ip).GetAddressBytes()
-    $IPBytes = $IPBytes[0..($IPBytes.Length - 2)] 
-    [Array]::Reverse($IPBytes)  
-    $IPBytes -join '.'
+    [Array]::Reverse($IPBytes)
+    return $IPBytes -join '.'
 }
-function Get-IP-Address{
+
+function Get-IP-Address {
     return (Get-NetIPAddress -AddressFamily IPv4 -InterfaceAlias Ethernet).IPAddress
 }
-function Port-Is-Open{
+
+function Test-PortOpen {
     param($port)
-    return (Test-NetConnection -ComputerName $env:COMPUTERNAME -Port $port -InformationLevel Quiet)
+    
+    return (Get-NetTCPConnection | where Localport -eq $port | select Localport,OwningProcess)
 }
-function Port-Is-Valid{
+
+function Test-PortValid {
     param($port)
-    if ($port -ge 1 -and $port -le 65535){
-        return $true
-    }
-    return $false
+    return ((Test-PortOpen -port $port) -and (In-CommonPorts -port $port))
 }
-function Get-All-Zones(){
+
+function Get-All-Zones {
     return (Get-DnsServerZone | Select-Object -ExpandProperty ZoneName)
+}
 
-}
-function valdiate-username{
+function Validate-Username {
     param($user)
-    if ($user -match "^[a-zA-Z0-9_]{3,16}$"){
-        return $true
-    }
-    return $false
+    return $user -match "^[a-zA-Z0-9_]{3,16}$"
 }
-function user-exists{
+
+function Test-UserExists {
     param($user)
-    $users = Get-LocalUser
-    if (Get-LocalUser -Name $user -ErrorAction SilentlyContinue){
-        return $true
-    }
-    return $false
+    return [bool](Get-LocalUser -Name $user -ErrorAction SilentlyContinue)
 }
-function validate-password{
+
+function Validate-Password {
     param($password)
-    if ($password -match "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"){
-        return $true
+    return $password -match "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+}
+
+function Test-UserNotInGroups {
+    param($userName)
+    $userGroups = @(Get-LocalGroupMember -Group "reprobados" -ErrorAction SilentlyContinue | Where-Object { $_.Name -match $userName }) +
+                  @(Get-LocalGroupMember -Group "recursados" -ErrorAction SilentlyContinue | Where-Object { $_.Name -match $userName })
+
+    return ($userGroups.Count -eq 0)
+}
+
+function Get-TomcatVersions {
+    param([int]$version)
+    
+    $url = "https://dlcdn.apache.org/tomcat/tomcat-$version/"
+    $html = Invoke-WebRequest -Uri $url -UseBasicParsing
+    $versions = $html.Links.href | Where-Object { $_ -match "^v$version\.\d+\.\d+/$" }
+    $versions = $versions -replace "^v|/$", ""
+    # Return as array regardless of number of elements
+    return ,$versions
+}
+
+function Install-Tomcat {
+    param([string]$version, [string]$version_number)
+    Purge-Service -service_name "Tomcat"
+    $url = "https://dlcdn.apache.org/tomcat/tomcat-$version/v$version_number/bin/apache-tomcat-$version_number-windows-x64.zip"
+    $outputPath = "C:\Users\Administrator\Downloads\tomcat.zip"
+    $extractPath = "C:\Users\Administrator\Downloads\Tomcat"
+    $tomcatPath = "C:\Tomcat"
+    $confFile = "$tomcatPath\conf\server.xml"
+    if(-not (Test-Path -Path $tomcatPath)){
+        New-Item -Path $tomcatPath -ItemType Directory
+    }
+    if(-not (Test-Path -Path $extractPath)){
+        New-Item -Path $extractPath -ItemType Directory
+    }
+    (New-Object System.Net.WebClient).DownloadFile($url, $outputPath)
+    #Check if the file is downloaded
+    if (-not (Test-Path -Path $outputPath)) {
+        Write-Host "No se pudo descargar el archivo"
+        return
+    }
+    $port = Read-Host "Ingresa el puerto del servidor Tomcat"
+    while ($true) {
+        if (-not (Test-PortValid -port $port)) {
+            break
+        }
+        $port = Read-Host "Puerto no valido, porfavor ingresa un puerto valido"
+    }
+    Expand-Archive -Path $outputPath -DestinationPath "$extractPath" -Force
+    Copy-Item -Path "$extractPath\apache-tomcat-$version_number\*" -Destination $tomcatPath -Recurse -Force
+    (Get-Content -Path $confFile) -replace 'port="8080"', "port=`"$port`""  | Set-Content -Path $confFile
+    #Remove the downloaded file
+    #Set enviorment variables
+    ([System.Environment]::SetEnvironmentVariable("CATALINA_HOME", $tomcatPath, [System.EnvironmentVariableTarget]::Machine))
+    ([System.Environment]::SetEnvironmentVariable("CATALINA_BASE", $tomcatPath, [System.EnvironmentVariableTarget]::Machine))
+    #Install the service
+    Start-Process -FilePath "$tomcatPath\bin\service.bat" install
+    Remove-Item -Path $outputPath -Force
+    #Remove the extracted folder
+    Remove-Item -Path $extractPath -Recurse -Force
+    $server_Ip = Get-IP-Address
+    Write-Host "Servidor corriendo en http://$($server_Ip):$($port)" -ForegroundColor Green
+}
+Function Install-Nginx{
+    param([string]$version)
+    Purge-Service -service_name "Nginx"
+    $url = "https://nginx.org/download/nginx-$version.zip"
+    $outputPath = "C:\Users\Administrator\Downloads\nginx.zip"
+    $extractPath = "C:\Users\Administrator\Downloads\Nginx"
+    $nginxPath = "C:\Nginx"
+    $confFile = "$nginxPath\conf\nginx.conf"
+    #check if the path of the nginx and extraction path exist before the installation.
+    if(-not (Test-Path -Path $nginxPath)){
+        New-Item -Path $nginxPath -ItemType Directory
+    }
+    if(-not (Test-Path -Path $extractPath)){
+        New-Item -Path $extractPath -ItemType Directory
+    }
+    (New-Object System.Net.WebClient).DownloadFile($url, $outputPath)
+    #Check if the file is downloaded
+    if (-not (Test-Path -Path $outputPath)) {
+        Write-Host "No se pudo descargar el archivo"
+        return
+    }
+    $port = Read-Host "Ingresa el puerto del servidor Nginx"
+    while ($true) {
+        if (-not (Test-PortValid -port $port)) {
+            break
+        }
+        $port = Read-Host "Puerto no valido, porfavor ingresa un puerto valido"
+    }
+    if (-not (Test-Path "C:\Nginx\logs")) {
+    New-Item -Path "C:\Nginx\logs" -ItemType Directory
+    }
+if (-not (Test-Path "C:\Nginx\logs\error.log")) {
+    New-Item -Path "C:\Nginx\logs\error.log" -ItemType File -Force
+}
+
+    Expand-Archive -Path $outputPath -DestinationPath "$extractPath" -Force
+    Copy-Item -Path "$extractPath\nginx-$version\*" -Destination $nginxPath -Recurse -Force
+    $insert_config = @"
+worker_processes  1;
+
+error_log  C:/Nginx/logs/error.log;
+pid        C:/Nginx/logs/nginx.pid;
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+    
+    access_log  C:/Nginx/logs/access.log;
+    
+    sendfile        on;
+    keepalive_timeout  65;
+    
+    server {
+        listen       $port;
+        server_name  localhost;
+        
+        location / {
+            root   html;
+            index  index.html index.htm;
+        }
+        
+        error_page   500 502 503 504  /50x.html;
+    }
+}
+"@
+    Set-Content -Path $confFile -Value $insert_config -Force
+    #Remove the installation files
+    Remove-Item -Path $outputPath -Force
+    Remove-Item -Path $extractPath -Recurse -Force
+    Set-Location $nginxPath
+    $server_Ip = Get-IP-Address
+    #For some reasons the Start-Process with $path doesn't work
+    #Buf if you're in the same directory as the executable it works 🦧🦧🦧
+    #nginx/Windows uses the directory where it has been run as the prefix for relative paths in the configuration. 
+    #In the example above, the prefix is C:\nginx-1.27.4\. Ahhh thats why🙉
+    #Start-Process "$nginxPath\nginx.exe" -ArgumentList "-p", "C:\Nginx", "-c", "C:\Nginx\conf\nginx.conf"
+    #Start-Process "$nginxPath\nginx.exe" -ArgumentList "-p", "C:\Nginx", "-s", "reload"
+    Start-Process ".\nginx.exe"
+    tasklist /fi "imagename eq nginx.exe"
+    .\nginx.exe -s reload
+    $server_Ip = Get-IP-Address
+    Set-Location C:\
+    Write-Host "Servidor corriendo en http://$($server_Ip):$($port)" -ForegroundColor Green
+}
+Function Purge-Service{
+    param([string]$service_name)
+    $services = (Get-Service -Name "$service_name*")
+    if($services){
+        foreach($service in $services){
+            Stop-Service -Name $service.Name
+            Write-Host "Stopping $($service.Name)"
+            sc.exe stop $service.Name
+            sc.exe delete $service.Name
+        }
+    }
+    if($service_name -eq "Tomcat"){
+        Remove-Item -Path "C:\Tomcat\*" -Recurse -Force
+        #Remove enviorment variables
+        [System.Environment]::SetEnvironmentVariable("CATALINA_HOME", $null, [System.EnvironmentVariableTarget]::Machine)
+        [System.Environment]::SetEnvironmentVariable("CATALINA_BASE", $null, [System.EnvironmentVariableTarget]::Machine)
+    }elseif ($service_name -eq "Nginx"){
+        taskkill.exe /F /IM nginx.exe > $null 2>&1
+        Stop-Service -Name "nginx*" -Force 2>$null
+        Remove-Item -Path "C:\Nginx" -Recurse -Force
+    }elseif ($service_name -eq "IIS"){
+        #Do Something
+        #Remove IIS Pages
+        Remove-Item -Path "C:\Sites" -Recurse -Force
+        #remove IIS Websites and bindings
+        Get-Website | Remove-Website
+        Get-WebBinding | Remove-WebBinding
+    }
+}
+Function Get-FilePath{
+    param([string]$file_name)
+    $path = (Get-ChildItem -Path "C:\ruta\a\tomcat" -Filter "service.bat" -Recurse -File | Select-Object -ExpandProperty FullName)
+    if (-not $path) {
+        <# Action to perform if the condition is true #>
+        Write-Host "No se encontró el archivo"
+    }
+    return $path
+}
+Function ServiceExists{
+    param([string]$service_name)
+    return (Get-Service -Name "$service_name*" -ErrorAction SilentlyContinue)
+}
+
+Function Get-NginxVersions{
+$nginx_url = "https://nginx.org/download/"
+$nginx_versions = (Invoke-WebRequest -Uri $nginx_url -UseBasicParsing).Links.href | Where-Object { $_ -match "nginx-(\d+\.\d+\.\d+)\.zip" } 
+$versions = $nginx_versions -replace "nginx-|\.zip", "" | Where-Object { $_ -match "^\d+\.\d+\.\d+$" }
+return ($versions | Sort-Object {[System.Version]$_} -Descending)
+
+}
+Function Install-IIS{
+    Install-WindowsFeature web-server -IncludeManagementTools > $null 2>&1
+    Import-Module WebAdministration
+    Purge-Service -service_name "IIS"
+    mkdir C:\Sites\ 2>$null
+    $siteName = Read-Host "Ingresa el nombre del sitio web "
+    mkdir C:\Sites\$siteName 2>$null
+    $port = Read-Host "Ingresa el puerto del servidor IIS: "
+    while ($true) {
+        if (-not (Test-PortValid -port $port)) {
+            break
+        }
+        $port = Read-Host "Puerto no valido, porfavor ingresa un puerto valido"
+    }
+    $pageContent = @"
+    <html>
+        <head>
+            <title>$siteName</title>
+        </head>
+        <body>
+            <h1>¡Hola Mundo!</h1>
+            <h2>Desde $siteName</h2>
+            <p>Este es un servidor web de prueba</p>
+        </body>
+
+"@
+    New-WebSite -Name "$siteName" -Port $port -PhysicalPath "C:\Sites\$siteName" -ApplicationPool "DefaultAppPool"
+    New-WebBinding -Name "$siteName" -IPAddress "*" -Port $port -HostHeader "$siteName" -Protocol "http" 
+    Start-WebSite -Name "$siteName"
+    Set-Content -Path "C:\Sites\$siteName\index.html" -Value $pageContent
+    $server_Ip = Get-IP-Address
+    Write-Host "Servidor corriendo en http://$($server_Ip):$($port)" -ForegroundColor Green
+}
+Function Print-Array{
+    param([array]$array)
+    if($array.Count -eq 0){
+        Write-Host "No hay elementos en el array"
+        return
+    }
+    foreach($element in $array){
+        #index of the element
+        Write-Host "[$($array.IndexOf($element))] $element"
+    }
+}
+Function In-CommonPorts{
+    param([int]$port)
+    $common_ports = @(20,21,22,23,25,53,110,143,443,465,587,993,995,3306,5432)
+    foreach($port in $common_ports){
+        if($port -eq $port){
+            return $true
+            break
+        }
     }
     return $false
 }
-function user-is-not-in-groups{
-    param($userName)
-    $userGroups = (Get-LocalGroupMember -Group "reprobados" -ErrorAction SilentlyContinue | Where-Object { $_.Name -match $userName }) + 
-              (Get-LocalGroupMember -Group "recursados" -ErrorAction SilentlyContinue | Where-Object { $_.Name -match $userName })
-
-    if ($userGroups.Count -eq 0) {
-        return $true
-    }
-return $false
-}
-
-Export-ModuleMember -Function saludar
-Export-ModuleMember -Function get_all_adapters
-Export-ModuleMember -Function get_adapter_ip
-Export-ModuleMember -Function ip_default_gateway
-Export-ModuleMember -Function ip_root
-Export-ModuleMember -Function get_adapter_ip_addresss
-Export-ModuleMember -Function get_last_octet
-Export-ModuleMember -Function reverse_ip
-Export-ModuleMember -Function Get-IP-Address
-Export-ModuleMember -Function Port-Is-Open
-Export-ModuleMember -Function Port-Is-Valid
-Export-ModuleMember -Function Get-All-Zones
-Export-ModuleMember -Function valdiate-username
-Export-ModuleMember -Function user-exists
-Export-ModuleMember -Function validate-password
-Export-ModuleMember -Function user-is-not-in-groups
+# Exportar todas las funciones correctamente
+Export-ModuleMember -Function saludar, get_all_adapters, get_adapter_ip, ip_default_gateway, ip_root, `
+    get_adapter_ip_address, get_last_octet, reverse_ip, Get-IP-Address, Test-PortOpen, Test-PortValid, `
+    Get-All-Zones, Validate-Username, Test-UserExists, Validate-Password, Test-UserNotInGroups, `
+    Get-TomcatVersions, Install-Tomcat, Purge-Service, Get-FilePath, Print-Array, ServiceExists, Get-ApacheVersions, `
+    Get-ServiceVersions, In-CommonPorts, Get-NginxVersions, Install-Nginx, Install-IIS
