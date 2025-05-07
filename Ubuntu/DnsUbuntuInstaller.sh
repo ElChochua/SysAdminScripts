@@ -1,4 +1,5 @@
-source /media/sf_Ubuntu/Functions.sh
+#!/bin/bash
+source /media/sf_shared/Functions.sh
 sudo apt-get update -y
 sudo apt install bind9 bind9-utils -y
 echo "Dando permisos a Bind9"
@@ -10,7 +11,7 @@ truncate -s 0 /etc/bind/named.conf.options
 echo options { >> /etc/bind/named.conf.options
 echo '	'"directory \"/var/cache/bind\""';' >> /etc/bind/named.conf.options
 echo '  ' listen-on { any\; }\; >> /etc/bind/named.conf.options
-echo '  ' allow-query { localhost\; $root_ip/24\; }\; >> /etc/bind/named.conf.options
+echo '  ' allow-query { localhost\; $root_ip\; }\; >> /etc/bind/named.conf.options
 echo '  ' forwarders { >> /etc/bind/named.conf.options
 echo '      ' 8.8.8.8\; >> /etc/bind/named.conf.options
 echo '      ' 8.8.4.4\; >> /etc/bind/named.conf.options
@@ -29,12 +30,12 @@ sleep 1
 echo "Configuracion de Bind9 realizada"
 
 ip_reverse_zone=$(remove_last_byte_and_rev $root_ip)
-sudo mkdir /etc/bind/zones/
+sudo mkdir -p /etc/bind/zones/
 truncate -s 0 /etc/bind/named.conf.local
 
 sleep 1
-#sudo truncate -s 0 /etc/bind/zones/db.$domain_name
-#sudo truncate -s 0 /etc/bind/zones/db.$ip_reverse_zone
+sudo truncate -s 0 /etc/bind/zones/db.$domain_name
+sudo truncate -s 0 /etc/bind/zones/db.$ip_reverse_zone
 sudo truncate -s 0 /etc/bind/named.conf.local
 echo zone \"$domain_name\" { >> /etc/bind/named.conf.local
 echo '  ' type master\; >> /etc/bind/named.conf.local
@@ -78,7 +79,6 @@ echo " " >> /etc/bind/zones/db.$ip_reverse_zone
 echo "  IN NS  $domain_name." >> /etc/bind/zones/db.$ip_reverse_zone
 echo $last_byte" IN PTR  server.$domain_name" >> /etc/bind/zones/db.$ip_reverse_zone
 
-sudo systemctl restart named
 sudo systemctl restart bind9
 sudo systemctl status bind9
 

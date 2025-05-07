@@ -1,9 +1,5 @@
-function ip_default_gateway {
-    param($ip)
-    $ip = $ip -split "\."
-    $ip[3] = 1
-    $ip -join "."
-}
+Import-Module Z:\Functions.psm1 -Force
+
 Install-WindowsFeature -name AD-Domain-Services -IncludeManagementTools
 $adapters = (Get-NetAdapter | Select-Object -ExpandProperty Name)
 $choise = Read-Host "Quieres agregar una direccion IP estatica ahora ? [S/N]"
@@ -21,6 +17,10 @@ if($choise -eq "s"){
     }
 }
 $domain = Read-Host -Prompt "Nombre del Dominio: "
-Install-ADDSForest -DomainName $domain'.com' -DomainNetbiosName "$domain" -InstallDNS: $true -CreateDNSDelegation: $false -DatabasePath "C:\NTDS" -SysvolPath "C:\SYSVOL" -LogPath "C:\NTDS" -Force
-
-    
+while (Is-Valid-DomainName -domainName $domain -eq $false) {
+    $domain = Read-Host -Prompt "Nombre del Dominio: "
+    if (Is-Valid-DomainName domainName $domain) {
+        break;
+    }
+}
+Install-ADDSForest -DomainName $domain -DomainNetbiosName "$domain" -InstallDNS: $true -CreateDNSDelegation: $false -DatabasePath "C:\NTDS" -SysvolPath "C:\SYSVOL" -LogPath "C:\NTDS" -Force

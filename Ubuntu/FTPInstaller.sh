@@ -1,6 +1,6 @@
 #!/bin/bash
 #sudo apt install vsftpd
-source /media/sf_Ubuntu/Functions.sh
+source /media/sf_shared/Functions.sh
 
 clear
 sudo mkdir -p /home/FTP 2>/dev/null

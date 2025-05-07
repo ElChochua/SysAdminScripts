@@ -44,7 +44,7 @@ switch ($serverOption) {
             Print-Array -array $tomcatVersions
             $versionChoise = Read-Host "Ingresa el numero de la version que deseas instalar"
             while($true){
-                if($versionChoise -ge 0 -and $versionChoise -le $tomcatVersions.Count){
+                if($versionChoise -ge 0 -and $versionChoise -le $tomcatVersions.Count - 1 ){
                     break
                 }
                 $versionChoise = Read-Host "Opcion no valida, porfavor ingresa una opcion valida"

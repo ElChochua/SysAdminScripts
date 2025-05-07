@@ -45,7 +45,7 @@ function reverse_ip {
 }
 
 function Get-IP-Address {
-    return (Get-NetIPAddress -AddressFamily IPv4 -InterfaceAlias Ethernet).IPAddress
+    return (Get-NetIPAddress -AddressFamily IPv4 -InterfaceAlias "Ethernet 2").IPAddress
 }
 
 function Test-PortOpen {
@@ -56,7 +56,7 @@ function Test-PortOpen {
 
 function Test-PortValid {
     param($port)
-    return ((Test-PortOpen -port $port) -and (In-CommonPorts -port $port))
+    return ((Test-PortOpen -port $port) -and (In-CommonPorts -port $port) -and ($port -ge 1 -and $port -le 65535))
 }
 
 function Get-All-Zones {
@@ -100,6 +100,7 @@ function Get-TomcatVersions {
 function Install-Tomcat {
     param([string]$version, [string]$version_number)
     Purge-Service -service_name "Tomcat"
+    Start-Sleep -Seconds 3
     $url = "https://dlcdn.apache.org/tomcat/tomcat-$version/v$version_number/bin/apache-tomcat-$version_number-windows-x64.zip"
     $outputPath = "C:\Users\Administrator\Downloads\tomcat.zip"
     $extractPath = "C:\Users\Administrator\Downloads\Tomcat"
@@ -132,10 +133,12 @@ function Install-Tomcat {
     ([System.Environment]::SetEnvironmentVariable("CATALINA_HOME", $tomcatPath, [System.EnvironmentVariableTarget]::Machine))
     ([System.Environment]::SetEnvironmentVariable("CATALINA_BASE", $tomcatPath, [System.EnvironmentVariableTarget]::Machine))
     #Install the service
+    Set-Location "$tomcatPath\bin"
     Start-Process -FilePath "$tomcatPath\bin\service.bat" install
     Remove-Item -Path $outputPath -Force
     #Remove the extracted folder
     Remove-Item -Path $extractPath -Recurse -Force
+    Set-Location C:\
     $server_Ip = Get-IP-Address
     Write-Host "Servidor corriendo en http://$($server_Ip):$($port)" -ForegroundColor Green
 }
@@ -227,30 +230,45 @@ http {
     Set-Location C:\
     Write-Host "Servidor corriendo en http://$($server_Ip):$($port)" -ForegroundColor Green
 }
+Function Install-JDK{
+    $jdk_url = "https://download.oracle.com/java/24/latest/jdk-24_windows-x64_bin.msi"
+    $outPath = "C:\Users\Administrator\Downloads\jdk.msi"
+    (New-Object System.Net.WebClient).DownloadFile($jdk_url, $outPath)
+    Start-Process msiexec "/i $outPath /qn";
+    Remove-Item -Path $outPath -Force
+}
 Function Purge-Service{
     param([string]$service_name)
     $services = (Get-Service -Name "$service_name*")
     if($services){
         foreach($service in $services){
-            Stop-Service -Name $service.Name
+            Stop-Process -Name $service.Name -Force -ErrorAction SilentlyContinue
+            sc.exe stop $service.Name -Force
+            Stop-Service -Name $service.Name -Force -ErrorAction SilentlyContinue
+            sc.exe delete $service.Name -Force
             Write-Host "Stopping $($service.Name)"
-            sc.exe stop $service.Name
-            sc.exe delete $service.Name
         }
     }
     if($service_name -eq "Tomcat"){
-        Remove-Item -Path "C:\Tomcat\*" -Recurse -Force
-        #Remove enviorment variables
         [System.Environment]::SetEnvironmentVariable("CATALINA_HOME", $null, [System.EnvironmentVariableTarget]::Machine)
         [System.Environment]::SetEnvironmentVariable("CATALINA_BASE", $null, [System.EnvironmentVariableTarget]::Machine)
+         if(Test-Path "C:\Tomcat"){
+            Remove-Item -Path "C:\Tomcat\*" -Recurse -Force
+        }
+
+        #Remove enviorment variables
     }elseif ($service_name -eq "Nginx"){
         taskkill.exe /F /IM nginx.exe > $null 2>&1
         Stop-Service -Name "nginx*" -Force 2>$null
-        Remove-Item -Path "C:\Nginx" -Recurse -Force
+        if(Test-Path "C:\Nginx"){
+            Remove-Item -Path "C:\Nginx\*" -Recurse -Force
+        }
     }elseif ($service_name -eq "IIS"){
         #Do Something
         #Remove IIS Pages
-        Remove-Item -Path "C:\Sites" -Recurse -Force
+        if(Test-Path "C:\Sites"){
+            Remove-Item -Path "C:\Sites\*" -Recurse -Force
+        }
         #remove IIS Websites and bindings
         Get-Website | Remove-Website
         Get-WebBinding | Remove-WebBinding
@@ -332,9 +350,104 @@ Function In-CommonPorts{
     }
     return $false
 }
+Function Get-Current-DomainName{
+    return Get-ADDomain | Select-Object -ExpandProperty Name
+}
+Function Is-Valid-DomainName{
+    param([Parameter(Mandatory=$true)][string]$domainName)
+    return $domainName -match "^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}$"
+}
+Function Convert-SecureString-To-PlainText{
+    param([Parameter(Mandatory=$true)][SecureString]$secureString)
+    $ptr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secureString)
+    return [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($ptr)
+}
+Function Set-LogonHours {
+    [CmdletBinding()]
+    Param(
+        [Parameter(Mandatory = $True)]
+        [ValidateRange(0, 23)]
+        $TimeIn24Format,
+
+        [Parameter(Mandatory = $True, ValueFromPipeline = $True, ValueFromPipelineByPropertyName = $True, Position = 0)]
+        $Identity,
+
+        [Parameter(Mandatory = $False)]
+        [ValidateSet("WorkingDays", "NonWorkingDays")]
+        $NonSelectedDaysare = "NonWorkingDays",
+
+        [Parameter(Mandatory = $False)][switch]$Sunday,
+        [Parameter(Mandatory = $False)][switch]$Monday,
+        [Parameter(Mandatory = $False)][switch]$Tuesday,
+        [Parameter(Mandatory = $False)][switch]$Wednesday,
+        [Parameter(Mandatory = $False)][switch]$Thursday,
+        [Parameter(Mandatory = $False)][switch]$Friday,
+        [Parameter(Mandatory = $False)][switch]$Saturday
+    )
+    Process {
+        $FullByte = New-Object "byte[]" 21
+        $FullDay = [ordered]@{}
+        0..23 | ForEach-Object { $FullDay.Add($_, "0") }
+        $TimeIn24Format.ForEach({ $FullDay[$_] = 1 })
+        $Working = -join ($FullDay.values)
+
+        Switch ($PSBoundParameters["NonSelectedDaysare"]) {
+            'NonWorkingDays' {
+                $SundayValue = $MondayValue = $TuesdayValue = $WednesdayValue = $ThursdayValue = $FridayValue = $SaturdayValue = "000000000000000000000000"
+            }
+            'WorkingDays' {
+                $SundayValue = $MondayValue = $TuesdayValue = $WednesdayValue = $ThursdayValue = $FridayValue = $SaturdayValue = "111111111111111111111111"
+            }
+        }
+
+        Switch ($PSBoundParameters.Keys) {
+            'Sunday' { $SundayValue = $Working }
+            'Monday' { $MondayValue = $Working }
+            'Tuesday' { $TuesdayValue = $Working }
+            'Wednesday' { $WednesdayValue = $Working }
+            'Thursday' { $ThursdayValue = $Working }
+            'Friday' { $FridayValue = $Working }
+            'Saturday' { $SaturdayValue = $Working }
+        }
+
+        $AllTheWeek = "{0}{1}{2}{3}{4}{5}{6}" -f $SundayValue, $MondayValue, $TuesdayValue, $WednesdayValue, $ThursdayValue, $FridayValue, $SaturdayValue
+
+        # Timezone Check
+        if ((Get-TimeZone).BaseUtcOffset.Hours -lt 0) {
+            $TimeZoneOffset = $AllTheWeek.Substring(0, 168 + ((Get-TimeZone).BaseUtcOffset.Hours))
+            $TimeZoneOffset1 = $AllTheWeek.Substring(168 + ((Get-TimeZone).BaseUtcOffset.Hours))
+            $FixedTimeZoneOffSet = "$TimeZoneOffset1$TimeZoneOffset"
+        }
+        elseif ((Get-TimeZone).BaseUtcOffset.Hours -gt 0) {
+            $TimeZoneOffset = $AllTheWeek.Substring(0, ((Get-TimeZone).BaseUtcOffset.Hours))
+            $TimeZoneOffset1 = $AllTheWeek.Substring(((Get-TimeZone).BaseUtcOffset.Hours))
+            $FixedTimeZoneOffSet = "$TimeZoneOffset1$TimeZoneOffset"
+        }
+        else {
+            $FixedTimeZoneOffSet = $AllTheWeek
+        }
+
+        $i = 0
+        $BinaryResult = $FixedTimeZoneOffSet -split '(\d{8})' | Where-Object { $_ -match '(\d{8})' }
+        Foreach ($singleByte in $BinaryResult) {
+            $Tempvar = $singleByte.ToCharArray()
+            [array]::Reverse($Tempvar)
+            $Tempvar = -join $Tempvar
+            $Byte = [Convert]::ToByte($Tempvar, 2)
+            $FullByte[$i] = $Byte
+            $i++
+        }
+
+        Set-ADUser -Identity $Identity -Replace @{ logonhours = $FullByte }
+    }
+    End {
+        Write-Output "All Done :)"
+    }
+}
 # Exportar todas las funciones correctamente
 Export-ModuleMember -Function saludar, get_all_adapters, get_adapter_ip, ip_default_gateway, ip_root, `
     get_adapter_ip_address, get_last_octet, reverse_ip, Get-IP-Address, Test-PortOpen, Test-PortValid, `
     Get-All-Zones, Validate-Username, Test-UserExists, Validate-Password, Test-UserNotInGroups, `
     Get-TomcatVersions, Install-Tomcat, Purge-Service, Get-FilePath, Print-Array, ServiceExists, Get-ApacheVersions, `
-    Get-ServiceVersions, In-CommonPorts, Get-NginxVersions, Install-Nginx, Install-IIS
+    Get-ServiceVersions, In-CommonPorts, Get-NginxVersions, Install-Nginx, Install-IIS, Install-JDK, Get-Current-DomainName,Convert-SecureString-To-PlainText, `
+    Set-LogonHours

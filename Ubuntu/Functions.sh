@@ -1,6 +1,6 @@
 #!/bin/bash
 
-reverse_ip() {
+ip_reverse_zone() {
     local ip=$1
     if [[ "$ip" =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ ]]; then
         byte=( ${ip//./ } )
@@ -127,6 +127,7 @@ install_packages(){
         "net-tools"
         "ufw"
         "libapache2-mod-jk"
+        "authbind"
     )
     for pack in "${util_packages[@]}"; do
         if ! package_installed "$pack"; then

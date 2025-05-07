@@ -1,8 +1,5 @@
 Import-Module Z:\Functions.psm1 -Force
-$port = Read-Host "Ingresa el puerto del servidor Tomcat"
-while ($true) {
-    if (-not (Test-PortValid -port $port)) {
-        break
-    }
-    $port = Read-Host "Puerto no valido, porfavor ingresa un puerto valido"
-}
+$password = "s2ltb1wkl*" | ConvertTo-SecureString -AsPlainText -Force
+$unsecure = Convert-SecureString-To-PlainText $password
+Write-Host "Contraseña en texto plano: $unsecure"
+Validate-Password  $unsecure
