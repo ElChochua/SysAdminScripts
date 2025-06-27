@@ -1,6 +1,6 @@
 Import-Module .\Functions.psm1
-#Install-WindowsFeature -Name Web-Ftp-Server -IncludeManagementTools
-#Install-WindowsFeature Web-Server -IncludeManagementTools
+Install-WindowsFeature -Name Web-Ftp-Server -IncludeManagementTools
+Install-WindowsFeature Web-Server -IncludeManagementTools
 Import-Module WebAdministration
 
 

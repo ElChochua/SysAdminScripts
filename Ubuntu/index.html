@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='es'>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello UbuntuServer</title>
-</head>
-<body>
-    <h1>Tu Servidor esta corriendo correctamente</h1>
-</body>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Contenedor $container_name</title>
+    <body>
+        <h1>Contenedor $container_name</h1>
+        <p>Este contenedor fue creado por el script DockerInstall.sh</p>
+        <p>El contenedor se encuentra en la ruta /var/www/html/$container_name</p>
+        <p>El contenedor fue creado por el usuario $USER</p>
+        <p>El contenedor fue creado el $(date)</p>
+    </body>
 </html>

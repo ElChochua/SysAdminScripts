@@ -1,5 +1,4 @@
 #!/bin/bash
-echo "Debes haber configurado el servidor DNS antes y debe coincidir con tu hostname: "
 hostname
 read -p "Ingresa el dominio de tu servidor: " domain
 sudo hostnamectl set-hostname --static $domain
@@ -44,22 +43,44 @@ echo "auth_mechanisms = plain login" | sudo tee -a /etc/dovecot/conf.d/10-auth.c
 echo "auth_mechanisms = plain" | sudo tee -a /etc/dovecot/conf.d/10-auth.conf > /dev/null
 echo "auth_username_format = %n" | sudo tee -a /etc/dovecot/conf.d/10-auth.conf > /dev/null
 
-zones=$(ls /etc/bind/zones/)
-zones_array=($zones)
-for i in "${!zones_array[@]}"; do
-    echo "$i.- ${zones_array[$i]}"
-done
+sudo tee /etc/bind/db.$domain > /dev/null <<EOF
+\$TTL 604800
+@   IN  SOA     $domain. root.$domain. (
+                1           ; Serial
+                604800      ; Refresh
+                86400       ; Retry
+                2419200     ; Expire
+                604800 )    ; Negative Cache TTL
 
-read -p "Selecciona una Zona " zone
-selected_zone=${zones_array[$zone]}
-read -p "Ingresa la direccion IP de tu servidor: " HTTP_IP
-sudo sed -i "/pop3/d" /etc/bind/zones/$selected_zone
-sudo sed -i "/smtp/d" /etc/bind/zones/$selected_zone
-sudo sed -i "/correo/d" /etc/bind/zones/$selected_zone
-echo "$domain. IN MX 10 $domain." >> /etc/bind/zones/$selected_zone
-echo "pop3   IN  CNAME   server" >> /etc/bind/zones/$selected_zone
-echo "smtp   IN  CNAME   server" >> /etc/bind/zones/$selected_zone
-sudo systemctl reload postfix
+; Servidores de nombres
+@   IN  NS      ns.$domain.
+ns  IN  A       $ip_server
+
+; Registros A
+@    IN  A      $ip_server
+mail IN  A      $ip_server
+webmail IN A    $ip_server
+
+; Registro MX
+@   IN  MX 10   mail.$domain.
+
+; Servicios de correo
+imap IN  A      $ip_server
+pop3 IN  A      $ip_server
+smtp IN  A      $ip_server
+EOF
+
+# Configurar named.conf.local
+#sudo tee -a /etc/bind/named.conf.local > /dev/null <<EOF
+#zone "$domain" {
+#    type master;
+#    file "/etc/bind/db.$domain";
+#};
+#EOF
+
+sudo systemctl restart bind9
 sudo systemctl restart postfix
 sudo systemctl restart dovecot
-sudo systemctl restart bind9
+sudo systemctl restart apache2
+
+echo "Servidor configurado."

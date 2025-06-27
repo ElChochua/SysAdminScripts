@@ -7,9 +7,9 @@ certificate_path="/etc/ssl/certs/apache-selfsigned.crt"
 sudo openssl req -x509 -nodes -keyout $certificate_key_path -out $certificate_path -days 365 -newkey rsa:2048
 sudo a2enmod ssl
 #Necesary Lines to enable SSL Configuration in Apache.
-#echo    SSLEngine on >> /etc/apache2/sites-available/$folderName.conf
-#echo    SSLCertificateFile $certificate_path >> /etc/apache2/sites-available/$folderName.conf
-#echo    SSLCertificateKeyFile $certificate_key_path >> /etc/apache2/sites-available/$folderName.conf
+echo    SSLEngine on >> /etc/apache2/sites-available/$folderName.conf
+echo    SSLCertificateFile $certificate_path >> /etc/apache2/sites-available/$folderName.conf
+echo    SSLCertificateKeyFile $certificate_key_path >> /etc/apache2/sites-available/$folderName.conf
 
 ;;
 2)
@@ -17,10 +17,10 @@ certificate_key_path="/etc/ssl/private/nginx-selfsigned.key"
 certificate_path="/etc/ssl/certs/nginx-selfsigned.crt"
 sudo openssl req -x509 -nodes -keyout $certificate_key_path -out $certificate_path -days 365 -newkey rsa:2048
 #Necesary Lines to enable SSL Configuration in Nginx.
-#echo "       listen [::]:$port ssl;" >> /etc/nginx/sites-available/$serverName
-#echo "       listen $port ssl;" >> /etc/nginx/sites-available/$serverName
-#echo "       ssl_certificate $certificate_path;" >> /etc/nginx/sites-available/$serverName
-#echo "       ssl_certificate_key $certificate_key_path;" >> /etc/nginx/sites-available/$serverName
+echo "       listen [::]:$port ssl;" >> /etc/nginx/sites-available/$serverName
+echo "       listen $port ssl;" >> /etc/nginx/sites-available/$serverName
+echo "       ssl_certificate $certificate_path;" >> /etc/nginx/sites-available/$serverName
+echo "       ssl_certificate_key $certificate_key_path;" >> /etc/nginx/sites-available/$serverName
 ;;
 3)
 certificate_key_path="/etc/ssl/private/tomcat-selfsigned.key"
