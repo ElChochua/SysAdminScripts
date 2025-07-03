@@ -129,7 +129,7 @@ if (Test-Path -Path "C:\multiotp") {
         .\multiotp.exe -config ldap-domain-controllers=dc.reprobados.com,ldap://192.168.1.5:389
         .\multiotp.exe -config ldap-base-dn="DC=reprobados,DC=com"
         .\multiotp.exe -config ldap-bind-dn="CN=Administrator,CN=Users,DC=reprobados,DC=com"
-        .\multiotp.exe -config ldap-server-password=S2ltb1wk**
+        .\multiotp.exe -config ldap-server-password=S2ltb1wk***
         .\multiotp.exe -config ldap-in-group=multiOtpGroup
         .\multiotp.exe -config ldap-network-timeout=10
         .\multiotp.exe -config ldap-time-limit=30
@@ -174,15 +174,7 @@ if ($option -eq "C") {
                 $selectedGroup = Read-Host "Selecciona el grupo al que deseas mover el usuario (Grupo1[1] /Grupo2[2])"
             }
             $groupName = $groups[$selectedGroup - 1]
-            New-ADUser -Name $userName `
-                -AccountPassword $password `
-                -Enable $true `
-                -Path "OU=$groupName,DC=$domainName,DC=com" `
-                -UserPrincipalName "$userName@$domainName" `
-                -PassThru
-            Set-ADUser -Identity "$userName" -ProfilePath "\\$env:COMPUTERNAME\Profiles\$($userName)"
-            Add-ADGroupMember -Identity "multiOtpGroup" -Members $userName
-            Write-Host "El usuario $userName ha sido creado y agregado al grupo $groupName." -ForegroundColor Green
+            CreateNewUserInDomain -userName $userName -password $password -groupName $groupName -domainName $domainName
         }   
     }
 }
@@ -214,7 +206,7 @@ Set-Location -Path "C:\multiOTP"
 #Policy Creation
 $group1PolicyName = "Group_1_Policy"
 $group2PolicyName = "Group_2_Policy"
-Set-PasswordPolicy
+#Set-PasswordPolicy
 #if the policy already exist remove it
 if (Get-GPO -Name $group1PolicyName -ErrorAction SilentlyContinue) {
     Remove-GPO -Name $group1PolicyName -Confirm:$false -ErrorAction SilentlyContinue

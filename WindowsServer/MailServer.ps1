@@ -1,5 +1,8 @@
 Import-Module Z:\Functions.psm1 -Force
+Install-WindowsFeature Web-Server -IncludeManagementTools
 Import-Module WebAdministration
+Get-WindowsFeature -Name "NET-Framework-Core"
+Install-WindowsFeature -Name "NET-Framework-Core" -Source "C:\Sources\SxS"
 
 # Configuración de rutas
 $hMailPath = "C:\Program Files (x86)\hMailServer\Bin\hMailServer.exe"
@@ -14,7 +17,7 @@ if (-not (Test-Path $hMailPath)) {
     Install-WindowsFeature -Name Web-Server, Web-Mgmt-Console
     
     # Descargar e instalar hMailServer
-   # $hMailServerURL = "https://dl.freesoftru.net/apps/25/245/24404/hMailServer-5.6.8-B2574.exe"
+    # $hMailServerURL = "https://dl.freesoftru.net/apps/25/245/24404/hMailServer-5.6.8-B2574.exe"
     $hMailServerInstaller = "$env:TEMP\hMailServer.exe"
     Copy-Item -Path Z:\hMailServer-5.6.8-B2574.exe -Destination $hMailServerInstaller -Force
     try {
@@ -25,9 +28,7 @@ if (-not (Test-Path $hMailPath)) {
         $adminPassword = Read-Host "Introduce la contraseña para el administrador de hMailServer" -AsSecureString
         $plainPassword = Convert-SecureString-To-PlainText -secureString $adminPassword
         
-        # Instalar silenciosamente con contraseña
-        $installArgs = "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP- /PASSWORD=$plainPassword"
-        Start-Process -FilePath $hMailServerInstaller -ArgumentList $installArgs -Wait
+        Start-Process -FilePath $hMailServerInstaller  -Wait
         
         Write-Host "hMailServer instalado correctamente"
     }
@@ -42,7 +43,13 @@ if (-not (Test-Path $hMailPath)) {
         }
     }
 }
+if(-not (Test-Path "C:\xampp*")){
+    $xamppUrl = "https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/5.6.40/xampp-windows-x64-5.6.40-1-VC11-installer.exe/download"
+    $outputXampp = "$env:TEMP\XAMPP-installer.exe"
+    (New-Object System.Net.WebClient).DownloadFile($xamppUrl, $outputXampp)
+    Start-Process -FilePath $outputXampp -Wait
 
+}
 # Registrar componente COM
 $hMailServerDLL = "C:\Program Files (x86)\hMailServer\Bin\hMailServer.dll"
 if (Test-Path $hMailServerDLL) {
@@ -69,49 +76,44 @@ while (-not (Test-Credential -username $userName -password $password)) {
 }
 $plainPassword = Convert-SecureString-To-PlainText -secureString $password
 
-try {
-    $hMail = New-Object -ComObject hMailServer.Application
-    $hMail.Authenticate($userName, $plainPassword)
+$hMail = New-Object -ComObject hMailServer.Application
+$hMail.Authenticate($userName, $plainPassword)
     
-    # Crear dominio si no existe
-    $domain = $hMail.Domains | Where-Object { $_.Name -eq $domainName }
-    if (-not $domain) {
-        $domain = $hMail.Domains.Add()
-        $domain.Name = $domainName
-        $domain.Active = $true
-        $domain.Save()
-        Write-Host "Dominio $domainName creado"
-    }
-
-    # Crear cuentas de usuario
-    @(
-        @{Name = "usuario1"; Password = "P@ssw0rd1" },
-        @{Name = "usuario2"; Password = "P@ssw0rd2" }
-    ) | ForEach-Object {
-        $email = "$($_.Name)@$domainName"
-        $account = $domain.Accounts | Where-Object { $_.Address -eq $email }
-        if (-not $account) {
-            $account = $domain.Accounts.Add()
-            $account.Address = $email
-            $account.Password = $_.Password
-            $account.Active = $true
-            $account.MaxSize = 100
-            $account.Save()
-            Write-Host "Cuenta creada: $email"
-        }
-    }
-
-    # Habilitar protocolos
-    $hMail.Settings.Protocols.IMAP.Enabled = $true
-    $hMail.Settings.Protocols.POP3.Enabled = $true
-    $hMail.Settings.Protocols.SMTP.Enabled = $true
-    $hMail.Settings.Protocols.Save()
-    Write-Host "Protocolos habilitados: IMAP, POP3, SMTP"
+# Crear dominio si no existe
+$domain = $hMail.Domains | Where-Object { $_.Name -eq $domainName }
+if (-not $domain) {
+    $domain = $hMail.Domains.Add()
+    $domain.Name = $domainName
+    $domain.Active = $true
+    $domain.Save()
+    Write-Host "Dominio $domainName creado"
 }
-catch {
-    Write-Host "Error al configurar hMailServer: $_" -ForegroundColor Red
-    exit 1
+
+# Crear cuentas de usuario
+@(
+    @{Name = "usuario1"; Password = "P@ssw0rd1" },
+    @{Name = "usuario2"; Password = "P@ssw0rd2" }
+) | ForEach-Object {
+    $email = "$($_.Name)@$domainName"
+    $account = $domain.Accounts | Where-Object { $_.Address -eq $email }
+    if (-not $account) {
+        $account = $domain.Accounts.Add()
+        $account.Address = $email
+        $account.Password = $_.Password
+        $account.Active = $true
+        $account.MaxSize = 100
+        $account.Save()
+        Write-Host "Cuenta creada: $email"
+    }
 }
+
+# Habilitar protocolos
+$hMail.Settings.ServicePOP3 = $true
+$hMail.Settings.ServiceIMAP = $true
+$hMail.Settings.ServiceSMTP = $true
+$hMail.Settings.Protocols.Save()
+Write-Host "Protocolos habilitados: IMAP, POP3, SMTP"
+
 
 # Configurar reglas de firewall
 Write-Host "Configurando reglas de firewall..."
@@ -131,75 +133,50 @@ Write-Host "Configurando reglas de firewall..."
 }
 
 # Instalar SquirrelMail
-$squirrelPath = "C:\inetpub\wwwroot\squirrelmail"
-$squirrelUrl = "https://github.com/squirrelmail/squirrelmail/releases/download/1.4.22/squirrelmail-1.4.22.zip"
-
+$squirrelPath = "C:\xampp\htdocs\squirrelmail"
+$squirrelUrl = "https://www.squirrelmail.org/countdl.php?fileurl=http%3A%2F%2Fprdownloads.sourceforge.net%2Fsquirrelmail%2Fsquirrelmail-webmail-1.4.22.zip"
+$extractPath = "$env:TEMP\squirrelmail"
 if (-not (Test-Path $squirrelPath)) {
-    try {
-        Write-Host "Instalando SquirrelMail..."
-        New-Item -Path $squirrelPath -ItemType Directory -Force | Out-Null
-        
-        # Descargar y extraer SquirrelMail
-        $tempFile = "$env:TEMP\squirrelmail.zip"
-        Invoke-WebRequest -Uri $squirrelUrl -OutFile $tempFile -UseBasicParsing
-        Expand-Archive -Path $tempFile -DestinationPath $squirrelPath -Force
-        Remove-Item $tempFile -Force
+    Write-Host "Instalando SquirrelMail..."
+    New-Item -Path $squirrelPath -ItemType Directory -Force
 
-        # Crear archivo de configuración
-        $configContent = @"
+    # Descargar y extraer SquirrelMail
+    $tempFile = "$env:TEMP\squirrelmail.zip"
+    (New-Object System.Net.WebClient).DownloadFile($squirrelUrl, $tempFile)
+    Expand-Archive -Path $tempFile -DestinationPath $extractPath -Force
+    Move-Item -Path "$extractPath\*" -Destination $squirrelPath -Force
+    Remove-Item $tempFile -Force
+    Remove-Item $extractPath -Recurse -Force
+    New-Item -Path "$squirrelPath\config" -ItemType Directory -Force
+    Rename-Item -Path "$squirrelPath\config\config_default.php" -NewName "config.php" -Force
+    
+    @"
 <?php
-`$imap_server_type = 'hmailserver';
-`$imap_server_address = 'localhost';
-`$imap_server_port = 143;
-`$smtp_server_address = 'localhost';
-`$smtp_server_port = 25;
-`$domain = '$domainName';
+\$imap_server_address = 'localhost';
+\$imap_server_port = 143;
+\$smtp_server_address = 'localhost';
+\$smtp_server_port = 25;
+\$domain = 'reprobados.com';
 ?>
-"@
-        $configPath = Join-Path $squirrelPath "config\config.php"
-        Set-Content -Path $configPath -Value $configContent -Encoding UTF8 -Force
-
-        # Configurar permisos
-        icacls $squirrelPath /grant "IIS_IUSRS:(OI)(CI)F" | Out-Null
-        Write-Host "SquirrelMail instalado correctamente"
+"@ | Set-Content -Path "$squirrelPath\config\config.php" -Force
+}
+    (Get-Content -Path "$squirrelPath\config\config.php") -replace "`$imap_server_type = 'other';", "`$imap_server_type = 'hmailserver';" |
+    Set-Content -Path "$squirrelPath\config\config.php" 
+    (Get-Content -Path "$squirrelPath\config\config.php") -replace "`$data_dir = '/var/local/squirrelmail/data/';", "`$data_dir = 'C:/xampp/htdocs/squirrelmail/data/';" | 
+    Set-Content -Path "$squirrelPath\config\config.php"
+    try{
+        $acl = Get-Acl -Path $squirrelPath
+        $accessRule = New-Object System.Security.AccessControl.FileSystemAccessRule("All",
+            "FullControl",
+            "ContainerInherit,ObjectInherit",
+            "None",
+            "Allow"
+            )
+            $acl.SetAccessRule($accessRule)
+            Set-Acl -Path $squirrelPath -AclObject $acl
+    }catch {
+        Write-Host "Error al establecer permisos en SquirrelMail: $_" -ForegroundColor Yellow
     }
-    catch {
-        Write-Host "Error al instalar SquirrelMail: $_" -ForegroundColor Red
-        exit 1
-    }
-}
-
-# Crear aplicación web
-try {
-    if (-not (Get-WebApplication -Name "squirrelmail" -Site "Default Web Site" -ErrorAction SilentlyContinue)) {
-        $port = Read-Host "Ingresa el puerto del servicio de SquirrelMail: "
-        while ($true) {
-            if (-not (Test-PortValid -port $port)) {
-                break
-            }
-            $port = Read-Host "Puerto no valido, porfavor ingresa un puerto valido"
-        }
-        New-WebApplication -Name "squirrelmail" -Site "Default Web Site" `
-            -PhysicalPath $squirrelPath -ApplicationPool "DefaultAppPool" | Out-Null
-        New-WebBinding -Name "squirrelmail" -IPAddress "*" -Port $port -HostHeader "Default Web Site" -Protocol "http" 
-        Start-WebSite -Name "squirrelmail"
-        Write-Host "Aplicación web SquirrelMail creada"
-    }
-}
-catch {
-    Write-Host "Error al crear aplicación web: $_" -ForegroundColor Red
-}
-
-# Iniciar servicios
-try {
-    Start-Service $serviceName -ErrorAction SilentlyContinue
-    Start-Service W3SVC -ErrorAction SilentlyContinue
-    Write-Host "Servicios iniciados"
-}
-catch {
-    Write-Host "Error al iniciar servicios: $_" -ForegroundColor Yellow
-}
-
 # Obtener direcciones IP
 try {
     $localServer = (Get-NetIPAddress -AddressFamily IPv4 | 

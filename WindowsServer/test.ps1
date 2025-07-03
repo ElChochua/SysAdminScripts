@@ -44,5 +44,25 @@ $tempdir = $tempdir.tostring()
 #>
 #Get-WinEvent -LogName Security | Where-Object { $_.Id -in @(5136, 4720, 4726, 4662) } | Select-Object TimeCreated, Id, Message -Last 40
 #Get-EventLog -LogName Security -Newest 50 | Where-Object {$_.Id -in @(5136, 4720, 4726, 4662, 4364)} | Select-Object TimeGenerated, EventID, Message
-
-Write-host $plainPassword
+$userName = Read-Host "Introduce el nombre de usuario"
+$password = Read-Host "Introduce la contraseña" -AsSecureString
+$group = Read-Host "Introduce el nombre del grupo al que se añadirá el usuario"
+$groupName = ""
+if ($group -eq 1) {
+    $groupName = "group_1"
+}
+else {
+    $groupName = "group_2"
+}
+$domainName = "reprobados"
+CreateNewUserInDomain -userName $userName -password $password -groupName $groupName -domainName $domainName
+$group1Users = Get-ADUser -Filter * -SearchBase "OU=group_1,DC=reprobados,DC=com"
+$group2Users = Get-ADUser -Filter * -SearchBase "OU=group_2,DC=reprobados,DC=com"
+foreach ($user in $group1Users) {
+    Set-LogonHours -Identity $($user.SamAccountName)  -TimeIn24Format @(8, 14) -Monday -Tuesday -Wednesday -Thursday -Friday -Saturday -Sunday -NonSelectedDaysare NonWorkingDays
+}
+$group_2_users = Get-ADUser -Filter * -SearchBase "OU=group_2,DC=reprobados,DC=com"  
+foreach ($user in $group2Users) {
+    Set-LogonHours -Identity $($user.SamAccountName)   -TimeIn24Format @(15..23 + 0..2) -Monday -Tuesday -Wednesday -Thursday -Friday -Saturday -Sunday -NonSelectedDaysare NonWorkingDays
+}
+ 

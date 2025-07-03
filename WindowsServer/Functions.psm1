@@ -720,10 +720,34 @@ Function Set-PasswordPolicy {
     }
 
 }
+Function CreateNewUserInDomain {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$userName,
+        [Parameter(Mandatory = $true)]
+        [securestring]$password,
+        [Parameter(Mandatory = $true)]
+        [string]$groupName,
+        [Parameter(Mandatory = $true)]
+        [string]$domainName
+    )
+    New-ADUser -Name $userName `
+        -AccountPassword $password `
+        -Enable $true `
+        -Path "OU=$groupName,DC=$domainName,DC=com" `
+        -UserPrincipalName "$userName@$domainName" `
+        -ChangePasswordAtLogon $true `
+        -PassThru
+    Set-ADUser -Identity "$userName" -ProfilePath "\\$env:COMPUTERNAME\Profiles\$($userName)"
+    Add-ADGroupMember -Identity "multiOtpGroup" -Members $userName
+    Set-Location -Path "C:\multiOTP"
+    .\multiotp.exe -debug -display-log -ldap-users-sync
+    Write-Host "El usuario $userName ha sido creado y agregado al grupo $groupName." -ForegroundColor Green
+}
 # Exportar todas las funciones correctamente
 Export-ModuleMember -Function saludar, get_all_adapters, get_adapter_ip, ip_default_gateway, ip_root, `
     get_adapter_ip_address, get_last_octet, reverse_ip, Get-IP-Address, Test-PortOpen, Test-PortValid, `
     Get-All-Zones, Validate-Username, Test-UserExists, Validate-Password, Test-UserNotInGroups, `
     Get-TomcatVersions, Install-Tomcat, Purge-Service, Get-FilePath, Print-Array, ServiceExists, Get-ApacheVersions, `
     Get-ServiceVersions, In-CommonPorts, Get-NginxVersions, Install-Nginx, Install-IIS, Install-JDK, Get-Current-DomainName, Convert-SecureString-To-PlainText, `
-    Set-LogonHours, Set-PasswordPolicy, Test-Credential
+    Set-LogonHours, Set-PasswordPolicy, Test-Credential, CreateNewUserInDomain
