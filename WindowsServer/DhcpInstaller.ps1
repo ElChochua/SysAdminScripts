@@ -1,4 +1,4 @@
-Import-Module .\Functions.psm1
+Import-Module Z:\Functions.psm1 -Force
 Install-WindowsFeature -Name DHCP -IncludeManagementTools
 #Install-ADDSForest -DomainName YOURDOMAINHERE -InstallDNS
 $adapters = get_all_adapters

@@ -1,4 +1,4 @@
-Import-Module .\Functions.psm1
+Import-Module Z:\Functions.psm1 -Force
 Install-WindowsFeature -Name Web-Ftp-Server -IncludeManagementTools
 Install-WindowsFeature Web-Server -IncludeManagementTools
 Import-Module WebAdministration
@@ -40,10 +40,10 @@ $usuarios = Read-Host "Cuantos usuarios planeas agregar? "
 for ($i = 1; $i -le $usuarios; $i++) {
     <# Action that will repeat until the condition is met #>
     $username = Read-Host "Ingresa el nombre del usuario"
-    while (-not (valdiate-username $username)) {
+    while (-not (Validate-Username $username)) {
         $username = Read-Host "Ingresa un nombre de usuario valido"
     }
-    if(user-exists $username -and user-is-not-in-groups $username){
+    if(Test-UserExists $username -and Test-UserNotInGroups $username){
         Write-Host "El usuario ya existe y no pertenece a ningun grupo. Quieres agregarlo a un grupo? [Y/N]"
         $answer = Read-Host
         if ($answer -eq "Y") {
@@ -69,7 +69,7 @@ for ($i = 1; $i -le $usuarios; $i++) {
         continue
     }else{
         $password = Read-Host "Ingresa la contraseña"
-        while (-not (validate-password $password)) {
+        while (-not (Validate-Password $password)) {
             $password = Read-Host "Ingresa una contraseña valida"
         }
         $group = Read-Host "Ingresa el grupo al que pertenece  `n`A:$groupAName `n`B:$groupBName"

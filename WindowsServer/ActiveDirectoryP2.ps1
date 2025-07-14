@@ -30,7 +30,7 @@ else {
 }
 
 #if the folder multiOtp exists, dont create it again
-if (Test-Path -Path "C:\multiotp") {
+if (-not(Test-Path -Path "C:\multiotp")) {
     #Stop the services if they are running
     $option = Read-Host "Parece que ya existe una instalacion de multiOTP, deseas re-instalarlo? (S/N)"
     if ($option -eq "S") {
@@ -124,12 +124,12 @@ if (Test-Path -Path "C:\multiotp") {
         .\multiotp.exe -config ldap-cn-identifier="sAMAccountName"
         .\multiotp.exe -config ldap-group-cn-identifier="sAMAccountName"
         .\multiotp.exe -config ldap-group-attribute="memberOf"
-        .\multiotp.exe -config ldap-ssl=0
-        .\multiotp.exe -config ldap-ssl-port=389
-        .\multiotp.exe -config ldap-domain-controllers=dc.reprobados.com,ldap://192.168.1.5:389
+        .\multiotp.exe -config ldap-ssl=1
+        .\multiotp.exe -config ldap-ssl-port=636
+        .\multiotp.exe -config ldap-domain-controllers=reprobados.com,ldap://192.168.1.5:636
         .\multiotp.exe -config ldap-base-dn="DC=reprobados,DC=com"
         .\multiotp.exe -config ldap-bind-dn="CN=Administrator,CN=Users,DC=reprobados,DC=com"
-        .\multiotp.exe -config ldap-server-password=S2ltb1wk***
+        .\multiotp.exe -config ldap-server-password=S2ltb1wk**
         .\multiotp.exe -config ldap-in-group=multiOtpGroup
         .\multiotp.exe -config ldap-network-timeout=10
         .\multiotp.exe -config ldap-time-limit=30

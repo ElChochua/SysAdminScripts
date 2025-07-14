@@ -23,4 +23,5 @@ while (Is-Valid-DomainName -domainName $domain -eq $false) {
         break;
     }
 }
-Install-ADDSForest -DomainName $domain -DomainNetbiosName "$domain" -InstallDNS: $true -CreateDNSDelegation: $false -DatabasePath "C:\NTDS" -SysvolPath "C:\SYSVOL" -LogPath "C:\NTDS" -Force
+
+Install-ADDSForest -DomainName "reprobados.com" -DomainNetbiosName "reprobados" -InstallDNS: $true -CreateDNSDelegation: $false -DatabasePath "C:\NTDS" -SysvolPath "C:\SYSVOL" -LogPath "C:\NTDS" -Force

@@ -142,7 +142,7 @@ function Install-Tomcat {
         New-Item -Path $extractPath -ItemType Directory
     }
     if ($download_source -eq 1) {
-    (New-Object System.Net.WebClient).DownloadFile($url, $outputPath)
+        (New-Object System.Net.WebClient).DownloadFile($url, $outputPath)
     }
     elseif ($download_source -eq 2) {
         #Get The version from the ftp server
@@ -744,10 +744,98 @@ Function CreateNewUserInDomain {
     .\multiotp.exe -debug -display-log -ldap-users-sync
     Write-Host "El usuario $userName ha sido creado y agregado al grupo $groupName." -ForegroundColor Green
 }
+function CreateNewFtpUser {
+    param(
+        [parameter(Mandatory = $true)]
+        [string]$username,
+        [parameter(Mandatory = $true)]
+        [securestring]$password,
+        [parameter(Mandatory = $true)]
+        [string]$groupName
+    )
+    net user "$username" "$password" /add
+    net localgroup "general" $username /add
+    mkdir "C:\FTP\$username"
+    mkdir "C:\FTP\LocalUser\$username"
+    cmd /c mklink /D "C:\FTP\LocalUser\$username\$username"  "C:\FTP\$username"
+    cmd /c mklink /D "C:\FTP\LocalUser\$username\General" "C:\FTP\General"
+    Remove-WebConfigurationProperty -PSPath IIS:\ -Location "FTP/$username" -Filter "system.ftpServer/security/authorization" -Name "."
+    Add-WebConfiguration "/system.ftpServer/security/authorization" -Value @{accessType = "Allow"; users = "$username"; permissions = 3 } -PSPath IIS:\ -Location "FTP/$username"
+    net localgroup "$groupName" "$username" /add
+    cmd /c mklink /D "C:\FTP\LocalUser\$username\$groupName" "C:\FTP\$groupName"
+
+}
+function Install-SquirrelMail {
+    $squirrelMailPath = "C:\xampp\htdocs\squirrelmail"
+    $squirrelMailUrl = "https://www.squirrelmail.org/countdl.php?fileurl=http%3A%2F%2Fprdownloads.sourceforge.net%2Fsquirrelmail%2Fsquirrelmail-webmail-1.4.22.zip"
+    $outputPath = "C:\Users\Administrator\Downloads\squirrelmail.zip"
+    Remove-Item -Path $squirrelMailPath -Recurse -Force -ErrorAction SilentlyContinue
+    if (-not (Test-Path -Path $squirrelMailPath)) {
+        New-Item -Path $squirrelMailPath -ItemType Directory
+    }
+    curl.exe -L $squirrelMailUrl -o $outputPath
+    Expand-Archive -Path $outputPath -DestinationPath "C:\Users\Administrator\Downloads" -Force
+    Copy-Item -Path "C:\Users\Administrator\Downloads\squirrelmail-webmail-1.4.22\*" -Destination $squirrelMailPath -Recurse
+    Rename-Item -Path "$squirrelMailPath\config\config_default.php" -NewName "config.php"
+    (Get-Content -Path "$squirrelMailPath\config\config.php") -replace '\$domain\s*=\s*''[^'']+'';', '$domain = ''reprobados.com'';' | Set-Content "C:\xampp\htdocs\squirrelmail\config\config.php"
+    (Get-Content -Path "$squirrelMailPath\config\config.php") -replace '\$data_dir\s*=\s*''[^'']+'';', '$data_dir = ''C:/xampp/htdocs/squirrelmail/data/'';' | Set-Content "C:\xampp\htdocs\squirrelmail\config\config.php"
+    try {
+        $acl = Get-Acl -Path "$squirrelMailPath"
+        $accessRule = New-Object System.Security.AccessControl.FileSystemAccessRule("All", "FullControl", "Allow", "ConainerInherit", "ObjectInherit", "None")
+        $acl.SetAccessRule($accessRule)
+        Set-Acl -Path "$squirrelMailPath" -AclObject $acl
+        Write-Host "Permisos establecidos correctamente para SquirrelMail." -ForegroundColor Green
+        Set-Location "C:\xampp\"
+        Start-Process "C:\xampp\apache_start.bat" -Wait
+    }
+    catch {
+        Write-Host "Error al establecer permisos para SquirrelMail: $_" -ForegroundColor Red
+    }
+}
+function Install-PegasusMail {
+    $pegasusUrl = "https://www.pmail.com/downloads/m32-491.exe"
+    $pegasusInstaller = "$env:TEMP/pegasus_installer.exe"
+    curl.exe -L $pegasusUrl -o $pegasusInstaller
+    Start-Process -FilePath $pegasusInstaller -Wait
+    New-NetFirewallRule -DisplayName "SMTP" -Direction Inbound -Protocol TCP -LocalPort 25, 110, 143, 587, 993, 995 -Profile Any -Enabled True
+    Start-Process -FilePath "C:\MERCURY\mercury.exe"
+}
+function Install-Xampp {
+    $xamppUrl = "https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/5.6.40/xampp-windows-x64-5.6.40-1-VC11-installer.exe/download"
+    $xamppInstaller = "$env:TEMP\xampp_installer.exe"
+    curl.exe -L $xamppUrl -o $xamppInstaller
+    Start-Process -FilePath $xamppInstaller -Wait
+}
+function Create-MercuryAccount {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$username,
+        [Parameter(Mandatory = $true)]
+        [string]$password
+    )
+    $pathMail = "C:\MERCURY\MAIL"
+    $userPath = Join-Path -Path $pathMail $username
+    $pmFile = Join-Path -Path $userPath "PASSWD.PM"
+    if (-not (Test-Path -Path $userPath)) {
+        New-Item -Path $userPath -ItemType Directory
+        $pmFileContent = @"
+        POP3_access: $username
+        APOP_secret: 
+"@
+        try {
+            $ansi = [System.Text.Encoding]::GetEncoding("Windows-1252")
+            [System.IO.File]::WriteAllBytes($pmFile, $ansi.GetBytes($pmFileContent))
+        }
+        catch {
+            Write-Host "Error al crear el archivo de usuario: $_" -ForegroundColor Red
+            
+        }
+    }
+}
 # Exportar todas las funciones correctamente
 Export-ModuleMember -Function saludar, get_all_adapters, get_adapter_ip, ip_default_gateway, ip_root, `
     get_adapter_ip_address, get_last_octet, reverse_ip, Get-IP-Address, Test-PortOpen, Test-PortValid, `
     Get-All-Zones, Validate-Username, Test-UserExists, Validate-Password, Test-UserNotInGroups, `
     Get-TomcatVersions, Install-Tomcat, Purge-Service, Get-FilePath, Print-Array, ServiceExists, Get-ApacheVersions, `
     Get-ServiceVersions, In-CommonPorts, Get-NginxVersions, Install-Nginx, Install-IIS, Install-JDK, Get-Current-DomainName, Convert-SecureString-To-PlainText, `
-    Set-LogonHours, Set-PasswordPolicy, Test-Credential, CreateNewUserInDomain
+    Set-LogonHours, Set-PasswordPolicy, Test-Credential, CreateNewUserInDomain, Install-SquirrelMail, Install-PegasusMail, Install-Xampp, CreateNewFtpUser

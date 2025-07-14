@@ -4,8 +4,8 @@ $DhcpInDC=Get-DhcpServerInDC | ForEach-Object { $_.IPAddress.IPAddressToString }
 $currentDomain=Get-Current-DomainName
 if(-Not ($serversIps -eq $DhcpInDC)){
     Write-Host "Agregando Servicios al Dominio"
-    Add-DhcpServerInDC -DnsName $currentDomain -IPAddress $serversIps
-    Set-DhcpServerv4OptionValue -ScopeId $root_ip -OptionId 6 -Value  $serversIps -Force -ErrorAction SilentlyContinue
+    Add-DhcpServerInDC -DnsName reprobados.com -IPAddress 192.168.1.5
+    Set-DhcpServerv4OptionValue -ScopeId 192.168.1.0 -OptionId 6 -Value  192.168.1.5 -Force -ErrorAction SilentlyContinue
 }
 $groups=@("cuates","no cuates")
 foreach ($group in $groups){

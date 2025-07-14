@@ -453,3 +453,279 @@ package_installed() {
         return 1
     fi
 }
+Install_MiniKube(){
+    sudo apt update -y
+    sudo snap install kubectl --classic
+    wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 -O minikube
+    chmod 755 minikube 
+    sudo mv minikube /usr/local/bin/
+    minikube version
+    minikube start --memory=2048 --cpus=2
+    minikube status
+}
+Create_Pods(){
+
+    eval $(minikube docker-env)
+    cat > secret.yaml <<EOF
+apiVersion: v1
+kind: Secret
+metadata:
+  name: flaskapi-secret
+type: Opaque
+data:
+  DB_USER: cm9vdA==
+  DB_PASS: YWRtaW4=
+  DB_NAME: Zmxhc2thcGlfZGI=
+EOF
+    kubectl apply -f secret.yaml
+    cat > configmap.yaml <<EOF
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-config
+data:
+  confluence.cnf: |-
+    [mysqld]
+    character-set-server=utf8
+    collation-server=utf8_bin
+    default-storage-engine=InnoDB
+    innodb_file_per_table=256M
+    transaction-isolation=READ-COMMITTED
+
+EOF
+            kubectl apply -f configmap.yaml
+    #Volumenes persistentes
+
+    cat > mysql-pvc.yaml <<EOF
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-pv-volume
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  hostPath:
+    path: "/mnt/data/"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pv-claim
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+EOF
+
+    kubectl apply -f mysql-pvc.yaml
+
+    # Crear cliente temporal de MySQL para inicializar la base de datos y la tabla 'teams'
+    # El cliente se conecta al servicio MySQL desplegado en el clúster de Minikube
+    # Se crea la base de datos 'flaskapi_db' si no existe, la tabla 'teams' y se insertan datos de ejemplo
+    # El pod mysql-client se elimina automáticamente después de ejecutar los comandos
+    # La contraseña de root es 'admin' (de acuerdo al secreto creado previamente)
+    # Puedes modificar los valores de inserción según tus necesidades
+
+    # kubectl run -i --rm mysql-client --image=mysql --restart=Never -- \
+    # mysql -h mysql -uroot -padmin -e "
+    # CREATE DATABASE IF NOT EXISTS flaskapi_db;
+    # USE flaskapi_db;
+    # CREATE TABLE IF NOT EXISTS teams (
+    #     id INT AUTO_INCREMENT PRIMARY KEY,
+    #     name VARCHAR(255) NOT NULL,
+    #     group_number VARCHAR(255) NOT NULL,
+    #     points INT DEFAULT 0,
+    #     members INT DEFAULT 0,
+    #     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    # );
+    # INSERT INTO teams (name, group_number, points, members) VALUES
+    # ('Team A', 'Group 1', 10, 5),
+    # ('Team B', 'Group 1', 20, 6),
+    # ('Team C', 'Group 2', 15, 4),
+    # ('Team D', 'Group 2', 25, 7);
+    # "
+
+}
+Show_Logs(){
+    #Get all pods log in the default namespace
+    kubectl get pods --namespace default -o jsonpath="{.items[*].metadata.name}"
+}
+Deploy_Apps(){
+    eval $(minikube docker-env)
+    mkdir -p flaskapi && cd flaskapi
+    cat > flaskapi.py <<EOF
+import os
+from flask import Flask
+from flaskext.mysql import MySQL
+
+app = Flask(__name__)
+mysql = MySQL()
+app.config['MYSQL_DATABASE_USER'] = os.getenv('DB_USER')
+app.config['MYSQL_DATABASE_PASSWORD'] = os.getenv('DB_PASS')
+app.config['MYSQL_DATABASE_DB'] = os.getenv('DB_NAME')
+app.config['MYSQL_DATABASE_HOST'] = 'mysql'
+mysql.init_app(app)
+@app.route('/')
+def index():
+    return "Hello, World!"
+@app.route('/teams')
+def teams():
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM teams")
+    rows = cursor.fetchall()
+    cursor.close()
+    conn.close()
+    return str(rows)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+
+
+EOF
+cat > requeriments.txt <<EOF
+Flask==1.0.3
+Flask-MySQL==1.4.0
+PyMySQL==0.9.3
+PyMySQL[rsa]
+EOF
+
+cat > Dockerfile <<EOF
+FROM python:3.6-slim
+RUN apt-get clean && apt-get -y update && \
+    apt-get -y install build-essential
+WORKDIR /app
+COPY requeriments.txt /app/requeriments.txt
+RUN pip install --no-cache-dir -r /app/requeriments.txt
+COPY . .
+EXPOSE 5000
+CMD ["python", "flaskapi.py"]
+EOF
+docker build -t flask-api .
+cd ..
+
+cat > mysql-deployment.yaml <<EOF
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: mysql
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: flaskapi-secret
+              key: DB_PASS
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+        - name: mysql-persistent-storage
+          mountPath: /var/lib/mysql
+        - name: mysql-config-volume
+          mountPath: /etc/mysql/conf.d
+      volumes:
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: mysql-pv-claim
+      - name: mysql-config-volume
+        configMap:
+          name: mysql-config
+
+EOF
+    kubectl apply -f mysql-deployment.yaml
+    #Services
+
+    cat>mysql-service.yaml <<EOF
+apiVersion: v1
+kind: Service
+metadata:
+    name: mysql
+spec:
+    selector:
+        app: mysql
+    ports:
+    - port: 3306
+      protocol: TCP
+      name: mysql
+    type: ClusterIP
+
+EOF
+    kubectl apply -f mysql-service.yaml 
+    cat > flaskapi-deployment.yaml <<EOF
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: flaskapi-deployment
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: flaskapi
+    template:
+        metadata:
+            labels:
+                app: flaskapi
+        spec:
+            containers:
+            - name: flaskapi
+              image: flask-api
+              imagePullPolicy: Never
+              ports:
+              - containerPort: 5000
+              env:
+                  - name: DB_USER
+                    valueFrom:
+                        secretKeyRef:
+                            name: flaskapi-secret
+                            key: DB_USER
+                  - name: DB_PASS
+                    valueFrom:
+                        secretKeyRef:
+                            name: flaskapi-secret
+                            key: DB_PASS
+                  - name: DB_NAME
+                    valueFrom:
+                        secretKeyRef:
+                            name: flaskapi-secret
+                            key: DB_NAME
+EOF
+
+    cat > flaskapi-service.yaml <<EOF
+apiVersion: v1
+kind: Service
+metadata:
+    name: flaskapi-service
+spec:
+    type: LoadBalancer
+    selector:
+        app: flaskapi
+    ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+
+EOF
+    kubectl apply -f flaskapi-service.yaml
+    kubectl apply -f flaskapi-deployment.yaml
+    minikube service flaskapi-service --url
+    minikube service mysql --url
+    echo "Aplicaciones desplegadas correctamente."
+}

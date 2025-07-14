@@ -1,4 +1,4 @@
-Import-Module .\Functions.psm1
+Import-Module Z:\Functions.psm1 -Force
 $adapters = get_all_adapters
 Install-WindowsFeature -Name DNS -IncludeManagementTools
 Install-WindowsFeature -NAME RSAT-DNS-Server
@@ -41,10 +41,10 @@ if($adapters -ne $null){
         Add-DnsServerResourceRecordA -ZoneName "$($zone_name)" -Name "$($server_name)" -IPv4Address "$($IPV4Address)"
         
         if(-not(Get-DnsServerZone | Where-Object {$_.ZoneName -eq "$($reversed).in-addr.arpa"} -ne $null)){
-            Add-DnsServerPrimaryZone -NetworkId "$($root_ip)/24" -ZoneFile "$($reversed).in-addr.arpa.dns"
-            Add-DnsServerResourceRecordPtr -ZoneName "$($reversed).in-addr.arpa" -Name "$($last_octet)" -PtrDomainName "$($server_name).$($zone_name)"
+            Add-DnsServerPrimaryZone -NetworkId "192.168.1.0/24" -ZoneFile "1.168.192.in-addr.arpa.dns"
+            Add-DnsServerResourceRecordPtr -ZoneName "1.168.192.in-addr.arpa" -Name "5" -PtrDomainName "www.reprobados.com"
         }
-        Add-DnsServerResourceRecordCName -ZoneName "$($zone_name)" -Name "www" -HostNameAlias "$($server_name).$($zone_name)"
+        Add-DnsServerResourceRecordCName -ZoneName "reprobados.com" -Name "www" -HostNameAlias "www.reprobados.com"
         Start-Sleep -s 1
         Get-DnsServerZone
         Start-Sleep -s 1

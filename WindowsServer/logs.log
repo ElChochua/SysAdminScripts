@@ -1,0 +1,1184 @@
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 10:37:06	debug		Debug	Debug: **New configuration value for debug: '1' (was '0' before)	0	CHUAS-COMPUTER
+2025-07-11 10:37:06	debug		Debug	Debug: **New configuration value for last_update: '1752223022' (was '1752223026' before)	0	CHUAS-COMPUTER
+2025-07-11 10:37:06	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 10:37:06	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 10:37:06	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 10:37:06	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:37:06	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:37:06	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:37:06	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:37:06	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:37:06	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:37:06	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:37:06	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:37:06	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:37:06	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:37:06	debug		Debug	Debug: **New configuration value for last_update: '1752223022' (was '1752223026' before)	0	CHUAS-COMPUTER
+2025-07-11 10:37:06	debug		Debug	Debug: **New configuration value for server_secret: 'secretOTP' (was 'ClientServerSecret' before)	0	CHUAS-COMPUTER
+2025-07-11 10:37:06	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 10:37:06	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 10:37:06	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 10:37:26	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:37:26	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:37:26	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:37:26	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:37:26	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:37:26	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:37:26	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:37:26	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:37:26	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:37:26	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:37:26	debug		LDAP	Debug: *AD/LDAP synchronization started at 10:37:26 / Memory used: 14.6MB / Peak: 27.2MB	0	CHUAS-COMPUTER
+2025-07-11 10:37:26	info		LDAP	Info: AD/LDAP synchronization started	0	CHUAS-COMPUTER
+2025-07-11 10:37:26	debug		System	Debug: *LDAP cache folder created (C:\Users\ADMINI~1\AppData\Local\Temp\.ldap_cache/)	0	CHUAS-COMPUTER
+2025-07-11 10:37:26	debug		System	Debug: *LDAP cache folder value: C:\Users\ADMINI~1\AppData\Local\Temp\.ldap_cache/	0	CHUAS-COMPUTER
+2025-07-11 10:37:26	warning		LDAP	Error: FATAL: AD bind failed. Check the login credentials (49: Invalid credentials). (80090308: LdapErr: DSID-0C090523, comment: AcceptSecurityContext error, data 52e, v65f4)	0	CHUAS-COMPUTER
+2025-07-11 10:37:26	debug		Debug	Debug: *99 ERROR: Authentication failed (and other possible unknown errors)	0	CHUAS-COMPUTER
+2025-07-11 10:37:26	debug		Debug	Debug: *Attributes sent to the RADIUS server: Reply-Message := "ERROR: Authentication failed (and other possible unknown errors)"	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\.\
+2025-07-11 10:38:42	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:38:42	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:38:42	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:38:42	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:38:42	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:38:42	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:38:42	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:38:42	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:38:42	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:38:42	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:38:42	debug		Debug	Debug: **New configuration value for last_update: '1752223022' (was '1752223026' before)	0	CHUAS-COMPUTER
+2025-07-11 10:38:42	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 10:38:42	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 10:38:42	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\.\
+2025-07-11 10:38:47	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:38:47	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:38:47	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:38:47	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:38:47	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:38:47	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:38:47	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:38:47	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:38:47	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:38:47	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:38:47	debug		Debug	Debug: **New configuration value for last_update: '1752223022' (was '1752223122' before)	0	CHUAS-COMPUTER
+2025-07-11 10:38:47	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 10:38:47	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 10:38:47	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\.\
+2025-07-11 10:38:55	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:38:55	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:38:55	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:38:55	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:38:55	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:38:55	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:38:55	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:38:55	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:38:55	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:38:55	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:38:55	debug		Debug	Debug: **New configuration value for last_update: '1752223022' (was '1752223127' before)	0	CHUAS-COMPUTER
+2025-07-11 10:38:55	debug		Debug	Debug: **New configuration value for ldap_group_cn_identifier: 'cn' (was 'sAMAccountName' before)	0	CHUAS-COMPUTER
+2025-07-11 10:38:55	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 10:38:55	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 10:38:55	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\.\
+2025-07-11 10:38:59	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:38:59	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:38:59	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:38:59	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:38:59	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:38:59	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:38:59	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:38:59	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:38:59	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:38:59	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:38:59	debug		Debug	Debug: **New configuration value for last_update: '1752223022' (was '1752223135' before)	0	CHUAS-COMPUTER
+2025-07-11 10:38:59	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 10:38:59	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 10:38:59	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\.\
+2025-07-11 10:39:03	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:03	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:03	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:03	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:03	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:39:03	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:03	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:03	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:03	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:03	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:39:03	debug		Debug	Debug: **New configuration value for last_update: '1752223022' (was '1752223139' before)	0	CHUAS-COMPUTER
+2025-07-11 10:39:03	debug		Debug	Debug: **New configuration value for ldap_group_cn_identifier: 'sAMAccountName' (was 'cn' before)	0	CHUAS-COMPUTER
+2025-07-11 10:39:03	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 10:39:03	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 10:39:03	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\.\
+2025-07-11 10:39:09	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:09	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:09	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:09	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:09	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:39:09	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:09	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:09	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:09	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:09	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:39:09	debug		Debug	Debug: **New configuration value for last_update: '1752223022' (was '1752223143' before)	0	CHUAS-COMPUTER
+2025-07-11 10:39:09	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 10:39:09	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 10:39:09	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\.\
+2025-07-11 10:39:14	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:14	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:14	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:14	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:14	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:39:14	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:14	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:14	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:14	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:14	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:39:14	debug		Debug	Debug: **New configuration value for last_update: '1752223022' (was '1752223149' before)	0	CHUAS-COMPUTER
+2025-07-11 10:39:14	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 10:39:14	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 10:39:14	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\.\
+2025-07-11 10:39:16	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:16	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:16	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:16	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:16	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:39:16	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:16	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:16	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:16	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:16	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:39:16	debug		Debug	Debug: *99 ERROR: Authentication failed (and other possible unknown errors)	0	CHUAS-COMPUTER
+2025-07-11 10:39:16	debug		Debug	Debug: *Attributes sent to the RADIUS server: Reply-Message := "ERROR: Authentication failed (and other possible unknown errors)"	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\.\
+2025-07-11 10:39:25	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:25	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:25	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:25	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:25	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:39:25	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:25	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:25	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:25	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:25	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:39:25	debug		Debug	Debug: **New configuration value for last_update: '1752223022' (was '1752223154' before)	0	CHUAS-COMPUTER
+2025-07-11 10:39:25	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 10:39:25	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 10:39:25	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\.\
+2025-07-11 10:39:30	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:30	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:30	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:30	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:30	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:39:30	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:30	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:30	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:30	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:30	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:39:30	debug		Debug	Debug: **New configuration value for last_update: '1752223022' (was '1752223165' before)	0	CHUAS-COMPUTER
+2025-07-11 10:39:30	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 10:39:30	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 10:39:31	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\.\
+2025-07-11 10:39:35	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:35	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:35	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:35	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:35	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:39:35	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:35	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:35	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:35	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:35	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:39:35	debug		Debug	Debug: **New configuration value for last_update: '1752223022' (was '1752223170' before)	0	CHUAS-COMPUTER
+2025-07-11 10:39:35	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 10:39:35	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 10:39:35	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\.\
+2025-07-11 10:39:40	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:40	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:40	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:40	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:40	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:39:40	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:40	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:40	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:40	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:40	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:39:40	debug		Debug	Debug: **New configuration value for last_update: '1752223022' (was '1752223175' before)	0	CHUAS-COMPUTER
+2025-07-11 10:39:40	debug		Debug	Debug: **New configuration value for ldap_server_password: 'S2ltb1wk*' (was 'S2ltb1wk***' before)	0	CHUAS-COMPUTER
+2025-07-11 10:39:40	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 10:39:40	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 10:39:40	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\.\
+2025-07-11 10:39:43	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:43	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:43	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:43	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:44	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:39:44	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:44	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:44	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:44	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:44	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:39:44	debug		Debug	Debug: **New configuration value for last_update: '1752223022' (was '1752223180' before)	0	CHUAS-COMPUTER
+2025-07-11 10:39:44	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 10:39:44	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 10:39:44	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\.\
+2025-07-11 10:39:47	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:47	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:47	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:47	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:47	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:39:47	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:47	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:47	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:47	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:47	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:39:47	debug		Debug	Debug: **New configuration value for last_update: '1752223022' (was '1752223184' before)	0	CHUAS-COMPUTER
+2025-07-11 10:39:47	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 10:39:47	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 10:39:47	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\.\
+2025-07-11 10:39:50	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:50	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:50	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:50	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:50	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:39:50	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:50	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:50	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:50	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:50	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:39:50	debug		Debug	Debug: **New configuration value for last_update: '1752223022' (was '1752223187' before)	0	CHUAS-COMPUTER
+2025-07-11 10:39:50	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 10:39:50	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 10:39:50	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\.\
+2025-07-11 10:39:57	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:57	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:57	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:57	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:57	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:39:57	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:57	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:57	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:39:57	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:39:57	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:39:57	debug		Debug	Debug: **New configuration value for last_update: '1752223022' (was '1752223190' before)	0	CHUAS-COMPUTER
+2025-07-11 10:39:57	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 10:39:57	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 10:39:58	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\.\
+2025-07-11 10:40:01	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:01	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:01	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:01	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:01	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:40:01	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:01	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:01	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:01	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:01	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:40:01	debug		Debug	Debug: **New configuration value for last_update: '1752223022' (was '1752223197' before)	0	CHUAS-COMPUTER
+2025-07-11 10:40:01	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 10:40:01	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 10:40:02	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\.\
+2025-07-11 10:40:05	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:05	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:05	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:05	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:05	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:40:05	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:05	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:05	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:05	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:05	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:40:05	debug		Debug	Debug: **New configuration value for last_update: '1752223022' (was '1752223201' before)	0	CHUAS-COMPUTER
+2025-07-11 10:40:05	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 10:40:05	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 10:40:05	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\
+2025-07-11 10:40:21	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:21	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:21	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:21	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:21	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:40:21	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:21	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:21	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:21	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:21	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:40:21	debug		Debug	Debug: **New configuration value to write in stat for anonymous_stat_last_update: '1752223221' (was '0' before)	0	CHUAS-COMPUTER
+2025-07-11 10:40:21	debug		Debug	Debug: **New configuration value for anonymous_stat_last_update: '1752223221' (was '0' before)	0	CHUAS-COMPUTER
+2025-07-11 10:40:21	debug		Debug	Debug: **New configuration value for last_update: '1752223022' (was '1752223205' before)	0	CHUAS-COMPUTER
+2025-07-11 10:40:21	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 10:40:21	debug		Debug	Debug: **New stat value for anonymous_stat_last_update: '1752223221' (was '0' before)	0	CHUAS-COMPUTER
+2025-07-11 10:40:21	debug		Debug	Debug: **Writing stat data needed	0	CHUAS-COMPUTER
+2025-07-11 10:40:21	info		System	Info: Send anonymous weekly stats (stats can be disabled)	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		Debug	Debug: **New configuration value for admin_password_hash: 'aa857df6b3c8d1402323bd232e735d6c' (was '' before)	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:23	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:24	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:34	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\
+2025-07-11 10:40:35	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:35	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:35	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:35	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:35	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:35	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:40:35	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:35	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:35	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:35	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:35	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:35	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\
+2025-07-11 10:40:35	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:35	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:35	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:35	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:35	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:35	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:40:35	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:35	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:35	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:35	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:35	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:35	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\
+2025-07-11 10:40:38	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:38	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:38	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:38	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:38	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:38	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:40:38	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:38	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:38	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:40:38	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:40:38	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:40:38	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 10:41:36	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:36	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:36	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:41:36	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:36	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:36	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:41:36	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:36	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:36	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:41:36	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:36	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:36	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:41:36	debug		LDAP	Debug: *AD/LDAP synchronization started at 10:41:36 / Memory used: 14.6MB / Peak: 27.2MB	0	CHUAS-COMPUTER
+2025-07-11 10:41:36	info		LDAP	Info: AD/LDAP synchronization started	0	CHUAS-COMPUTER
+2025-07-11 10:41:36	debug		System	Debug: *LDAP cache folder value: C:\Users\Administrator\AppData\Local\Temp\.ldap_cache/	0	CHUAS-COMPUTER
+2025-07-11 10:41:36	warning		LDAP	Error: FATAL: AD bind failed. Check the login credentials (8: Strong(er) authentication required). (00002028: LdapErr: DSID-0C090343, comment: The server requires binds to turn on integrity checking if SSL\TLS are not already active on the connection, data 0, v65f4)	0	CHUAS-COMPUTER
+2025-07-11 10:41:36	debug		Debug	Debug: *99 ERROR: Authentication failed (and other possible unknown errors)	0	CHUAS-COMPUTER
+2025-07-11 10:41:36	debug		Debug	Debug: *Attributes sent to the RADIUS server: Reply-Message := "ERROR: Authentication failed (and other possible unknown errors)"	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:49	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:41:50	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 10:42:35	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:42:35	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:42:35	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:42:35	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:42:35	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:42:35	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:42:35	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:42:35	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:42:35	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:42:35	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:42:35	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:42:35	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:42:35	debug		LDAP	Debug: *AD/LDAP synchronization started at 10:42:35 / Memory used: 14.6MB / Peak: 27.2MB	0	CHUAS-COMPUTER
+2025-07-11 10:42:35	info		LDAP	Info: AD/LDAP synchronization started	0	CHUAS-COMPUTER
+2025-07-11 10:42:35	debug		System	Debug: *LDAP cache folder value: C:\Users\Administrator\AppData\Local\Temp\.ldap_cache/	0	CHUAS-COMPUTER
+2025-07-11 10:42:35	warning		LDAP	Error: FATAL: AD bind failed. Check the login credentials (8: Strong(er) authentication required). (00002028: LdapErr: DSID-0C090343, comment: The server requires binds to turn on integrity checking if SSL\TLS are not already active on the connection, data 0, v65f4)	0	CHUAS-COMPUTER
+2025-07-11 10:42:35	debug		Debug	Debug: *99 ERROR: Authentication failed (and other possible unknown errors)	0	CHUAS-COMPUTER
+2025-07-11 10:42:35	debug		Debug	Debug: *Attributes sent to the RADIUS server: Reply-Message := "ERROR: Authentication failed (and other possible unknown errors)"	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 10:43:08	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:43:08	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:43:08	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:43:08	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:43:08	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:43:08	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:43:08	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:43:08	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:43:08	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:43:08	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:43:08	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:43:08	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:43:08	debug		Debug	Debug: *99 ERROR: Authentication failed (and other possible unknown errors)	0	CHUAS-COMPUTER
+2025-07-11 10:43:08	debug		Debug	Debug: *Attributes sent to the RADIUS server: Reply-Message := "ERROR: Authentication failed (and other possible unknown errors)"	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 10:43:56	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:43:56	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:43:56	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:43:57	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:43:57	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:43:57	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:43:57	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:43:57	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:43:57	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:43:57	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:43:57	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:43:57	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:43:57	debug		Debug	Debug: **New configuration value for last_update: '1752223221' (was '1752223223' before)	0	CHUAS-COMPUTER
+2025-07-11 10:43:57	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 10:43:57	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 10:43:57	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 10:44:01	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:44:01	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:44:01	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:44:01	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:44:02	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:44:02	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:44:02	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:44:02	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:44:02	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:44:02	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:44:02	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:44:02	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:44:02	debug		Debug	Debug: *99 ERROR: Authentication failed (and other possible unknown errors)	0	CHUAS-COMPUTER
+2025-07-11 10:44:02	debug		Debug	Debug: *Attributes sent to the RADIUS server: Reply-Message := "ERROR: Authentication failed (and other possible unknown errors)"	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 10:59:43	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:59:43	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:59:43	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:59:43	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:59:43	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:59:43	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:59:43	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:59:43	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:59:43	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 10:59:43	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 10:59:43	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 10:59:43	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 10:59:43	debug		Debug	Debug: **New configuration value for last_update: '1752223221' (was '1752223437' before)	0	CHUAS-COMPUTER
+2025-07-11 10:59:43	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 10:59:43	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 10:59:43	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 11:00:45	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:00:45	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:00:45	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:00:45	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:00:45	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:00:45	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:00:45	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:00:45	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:00:45	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:00:45	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:00:45	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:00:45	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:00:45	debug		Debug	Debug: **New configuration value for last_update: '1752223221' (was '1752224383' before)	0	CHUAS-COMPUTER
+2025-07-11 11:00:45	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 11:00:45	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 11:00:45	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 11:03:11	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:03:11	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:03:11	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:03:11	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:03:11	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:03:11	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:03:11	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:03:11	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:03:11	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:03:11	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:03:11	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:03:11	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:03:11	debug		Debug	Debug: *99 ERROR: Authentication failed (and other possible unknown errors)	0	CHUAS-COMPUTER
+2025-07-11 11:03:11	debug		Debug	Debug: *Attributes sent to the RADIUS server: Reply-Message := "ERROR: Authentication failed (and other possible unknown errors)"	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 11:04:45	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:04:45	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:04:45	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:04:45	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:04:45	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:04:45	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:04:45	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:04:45	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:04:45	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:04:45	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:04:45	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:04:45	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:04:45	debug		Debug	Debug: **New configuration value for last_update: '1752223221' (was '1752224445' before)	0	CHUAS-COMPUTER
+2025-07-11 11:04:45	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 11:04:45	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 11:04:45	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 11:04:52	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:04:52	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:04:52	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:04:52	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:04:52	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:04:52	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:04:52	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:04:52	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:04:52	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:04:52	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:04:52	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:04:52	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:04:52	debug		Debug	Debug: *99 ERROR: Authentication failed (and other possible unknown errors)	0	CHUAS-COMPUTER
+2025-07-11 11:04:52	debug		Debug	Debug: *Attributes sent to the RADIUS server: Reply-Message := "ERROR: Authentication failed (and other possible unknown errors)"	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 11:06:21	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:06:21	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:06:21	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:06:21	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:06:21	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:06:21	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:06:21	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:06:21	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:06:21	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:06:21	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:06:21	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:06:21	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:06:21	debug		Debug	Debug: **New configuration value for last_update: '1752223221' (was '1752224685' before)	0	CHUAS-COMPUTER
+2025-07-11 11:06:21	debug		Debug	Debug: **New configuration value for ldap_domain_controllers: 'reprobados.com,ldap://192.168.1.5:389' (was 'dc.reprobados.com,ldap://192.168.1.5:389' before)	0	CHUAS-COMPUTER
+2025-07-11 11:06:21	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 11:06:21	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 11:06:21	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 11:06:26	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:06:26	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:06:26	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:06:26	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:06:26	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:06:26	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:06:26	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:06:26	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:06:26	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:06:26	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:06:26	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:06:26	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:06:26	debug		Debug	Debug: *99 ERROR: Authentication failed (and other possible unknown errors)	0	CHUAS-COMPUTER
+2025-07-11 11:06:26	debug		Debug	Debug: *Attributes sent to the RADIUS server: Reply-Message := "ERROR: Authentication failed (and other possible unknown errors)"	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 11:08:21	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:08:21	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:08:21	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:08:21	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:08:21	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:08:21	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:08:21	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:08:21	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:08:21	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:08:21	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:08:21	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:08:21	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:08:21	debug		Debug	Debug: **New configuration value for last_update: '1752223221' (was '1752224781' before)	0	CHUAS-COMPUTER
+2025-07-11 11:08:21	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 11:08:22	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 11:08:22	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 11:08:30	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:08:30	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:08:30	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:08:30	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:08:30	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:08:30	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:08:30	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:08:30	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:08:30	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:08:30	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:08:30	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:08:31	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:08:31	debug		LDAP	Debug: *AD/LDAP synchronization started at 11:08:31 / Memory used: 14.6MB / Peak: 27.2MB	0	CHUAS-COMPUTER
+2025-07-11 11:08:31	info		LDAP	Info: AD/LDAP synchronization started	0	CHUAS-COMPUTER
+2025-07-11 11:08:31	debug		System	Debug: *LDAP cache folder value: C:\Users\Administrator\AppData\Local\Temp\.ldap_cache/	0	CHUAS-COMPUTER
+2025-07-11 11:08:31	warning		LDAP	Error: FATAL: AD bind failed. Check the login credentials (8: Strong(er) authentication required). (00002028: LdapErr: DSID-0C090343, comment: The server requires binds to turn on integrity checking if SSL\TLS are not already active on the connection, data 0, v65f4)	0	CHUAS-COMPUTER
+2025-07-11 11:08:31	debug		Debug	Debug: *99 ERROR: Authentication failed (and other possible unknown errors)	0	CHUAS-COMPUTER
+2025-07-11 11:08:31	debug		Debug	Debug: *Attributes sent to the RADIUS server: Reply-Message := "ERROR: Authentication failed (and other possible unknown errors)"	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 11:10:40	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:10:40	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:10:40	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:10:40	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:10:40	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:10:40	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:10:40	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:10:40	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:10:40	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:10:40	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:10:40	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:10:40	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:10:40	debug		Debug	Debug: **New configuration value for last_update: '1752223221' (was '1752224902' before)	0	CHUAS-COMPUTER
+2025-07-11 11:10:40	debug		Debug	Debug: **New configuration value for ldap_server_password: 'S2ltb1wk**' (was 'S2ltb1wk*' before)	0	CHUAS-COMPUTER
+2025-07-11 11:10:40	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 11:10:40	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 11:10:40	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 11:10:44	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:10:44	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:10:44	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:10:44	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:10:44	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:10:44	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:10:44	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:10:44	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:10:44	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:10:44	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:10:44	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:10:44	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:10:44	debug		LDAP	Debug: *AD/LDAP synchronization started at 11:10:44 / Memory used: 14.6MB / Peak: 27.2MB	0	CHUAS-COMPUTER
+2025-07-11 11:10:44	info		LDAP	Info: AD/LDAP synchronization started	0	CHUAS-COMPUTER
+2025-07-11 11:10:44	debug		System	Debug: *LDAP cache folder value: C:\Users\Administrator\AppData\Local\Temp\.ldap_cache/	0	CHUAS-COMPUTER
+2025-07-11 11:10:44	warning		LDAP	Error: FATAL: AD bind failed. Check the login credentials (8: Strong(er) authentication required). (00002028: LdapErr: DSID-0C090343, comment: The server requires binds to turn on integrity checking if SSL\TLS are not already active on the connection, data 0, v65f4)	0	CHUAS-COMPUTER
+2025-07-11 11:10:44	debug		Debug	Debug: *99 ERROR: Authentication failed (and other possible unknown errors)	0	CHUAS-COMPUTER
+2025-07-11 11:10:44	debug		Debug	Debug: *Attributes sent to the RADIUS server: Reply-Message := "ERROR: Authentication failed (and other possible unknown errors)"	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 11:14:55	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:14:55	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:14:55	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:14:55	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:14:55	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:14:55	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:14:55	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:14:55	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:14:55	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:14:55	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:14:55	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:14:55	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:14:55	debug		Debug	Debug: *99 ERROR: Authentication failed (and other possible unknown errors)	0	CHUAS-COMPUTER
+2025-07-11 11:14:55	debug		Debug	Debug: *Attributes sent to the RADIUS server: Reply-Message := "ERROR: Authentication failed (and other possible unknown errors)"	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 11:20:39	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:20:39	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:20:39	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:20:39	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:20:39	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:20:39	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:20:39	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:20:39	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:20:39	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:20:39	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:20:39	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:20:39	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:20:39	debug		Debug	Debug: **New configuration value for last_update: '1752223221' (was '1752225040' before)	0	CHUAS-COMPUTER
+2025-07-11 11:20:39	debug		Debug	Debug: **New configuration value for ldap_ssl: '1' (was '0' before)	0	CHUAS-COMPUTER
+2025-07-11 11:20:39	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 11:20:39	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 11:20:39	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 11:20:42	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:20:42	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:20:42	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:20:42	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:20:42	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:20:42	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:20:42	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:20:42	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:20:42	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:20:42	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:20:42	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:20:42	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:20:42	debug		Debug	Debug: *99 ERROR: Authentication failed (and other possible unknown errors)	0	CHUAS-COMPUTER
+2025-07-11 11:20:42	debug		Debug	Debug: *Attributes sent to the RADIUS server: Reply-Message := "ERROR: Authentication failed (and other possible unknown errors)"	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 11:20:51	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:20:51	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:20:51	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:20:51	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:20:51	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:20:51	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:20:51	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:20:51	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:20:51	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:20:51	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:20:51	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:20:51	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:20:51	debug		Debug	Debug: **New configuration value for last_update: '1752223221' (was '1752225639' before)	0	CHUAS-COMPUTER
+2025-07-11 11:20:51	debug		Debug	Debug: **New configuration value for ldap_domain_controllers: 'reprobados.com,ldap://192.168.1.5:636' (was 'reprobados.com,ldap://192.168.1.5:389' before)	0	CHUAS-COMPUTER
+2025-07-11 11:20:51	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 11:20:51	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 11:20:51	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 11:20:54	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:20:54	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:20:54	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:20:54	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:20:54	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:20:54	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:20:54	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:20:54	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:20:54	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:20:54	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:20:54	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:20:54	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:20:54	debug		Debug	Debug: *99 ERROR: Authentication failed (and other possible unknown errors)	0	CHUAS-COMPUTER
+2025-07-11 11:20:54	debug		Debug	Debug: *Attributes sent to the RADIUS server: Reply-Message := "ERROR: Authentication failed (and other possible unknown errors)"	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 11:21:04	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:21:04	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:21:04	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:21:04	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:21:04	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:21:04	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:21:04	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:21:04	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:21:04	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:21:04	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:21:04	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:21:04	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:21:04	debug		Debug	Debug: **New configuration value for last_update: '1752223221' (was '1752225651' before)	0	CHUAS-COMPUTER
+2025-07-11 11:21:04	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 11:21:04	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 11:21:04	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiOTP\.\
+2025-07-11 11:21:17	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:21:17	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:21:17	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:21:17	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:21:17	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:21:17	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:21:17	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:21:17	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:21:17	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:21:17	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:21:17	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:21:17	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:21:17	debug		LDAP	Debug: *AD/LDAP synchronization started at 11:21:17 / Memory used: 14.6MB / Peak: 27.2MB	0	CHUAS-COMPUTER
+2025-07-11 11:21:17	info		LDAP	Info: AD/LDAP synchronization started	0	CHUAS-COMPUTER
+2025-07-11 11:21:17	debug		System	Debug: *LDAP cache folder value: C:\Users\Administrator\AppData\Local\Temp\.ldap_cache/	0	CHUAS-COMPUTER
+2025-07-11 11:21:17	warning		LDAP	Error: FATAL: AD bind failed. Either the LDAPS connection failed or the login credentials are incorrect (Can't contact LDAP server).	0	CHUAS-COMPUTER
+2025-07-11 11:21:17	debug		Debug	Debug: *99 ERROR: Authentication failed (and other possible unknown errors)	0	CHUAS-COMPUTER
+2025-07-11 11:21:17	debug		Debug	Debug: *Attributes sent to the RADIUS server: Reply-Message := "ERROR: Authentication failed (and other possible unknown errors)"	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\.\
+2025-07-11 11:24:11	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:24:11	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:24:11	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:24:11	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:24:11	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:24:11	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:24:11	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:24:11	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:24:11	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:24:11	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:24:11	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:24:11	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:24:11	debug		LDAP	Debug: *AD/LDAP synchronization started at 11:24:11 / Memory used: 14.6MB / Peak: 27.2MB	0	CHUAS-COMPUTER
+2025-07-11 11:24:11	info		LDAP	Info: AD/LDAP synchronization started	0	CHUAS-COMPUTER
+2025-07-11 11:24:11	debug		System	Debug: *LDAP cache folder value: C:\Users\Administrator\AppData\Local\Temp\.ldap_cache/	0	CHUAS-COMPUTER
+2025-07-11 11:24:11	warning		LDAP	Error: FATAL: AD bind failed. Either the LDAPS connection failed or the login credentials are incorrect (Can't contact LDAP server).	0	CHUAS-COMPUTER
+2025-07-11 11:24:11	debug		Debug	Debug: *99 ERROR: Authentication failed (and other possible unknown errors)	0	CHUAS-COMPUTER
+2025-07-11 11:24:11	debug		Debug	Debug: *Attributes sent to the RADIUS server: Reply-Message := "ERROR: Authentication failed (and other possible unknown errors)"	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\.\
+2025-07-11 11:25:14	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:25:14	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:25:14	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:25:14	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:25:14	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:25:14	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:25:15	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:25:15	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:25:15	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:25:15	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:25:15	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:25:15	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:25:15	debug		Debug	Debug: **New configuration value for last_update: '1752223221' (was '1752225664' before)	0	CHUAS-COMPUTER
+2025-07-11 11:25:15	debug		Debug	Debug: **New configuration value for ldap_ssl: '0' (was '1' before)	0	CHUAS-COMPUTER
+2025-07-11 11:25:15	debug		Debug	Debug: **Writing configuration data needed	0	CHUAS-COMPUTER
+2025-07-11 11:25:15	debug		Debug	Debug: **Writing stat data not needed (no change)	0	CHUAS-COMPUTER
+2025-07-11 11:25:15	debug		Debug	Debug: *19 INFO: Requested operation successfully done	0	CHUAS-COMPUTER
+========================================
+multiotp 5.9.9.1
+Your script is running from C:\multiotp\.\
+2025-07-11 11:25:20	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:25:20	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:25:20	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:25:20	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:25:20	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:25:20	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:25:20	debug		System	Debug: **ReadConfigData, stat value for anonymous_stat_last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:25:20	debug		System	Debug: **ReadConfigData, stat value for create_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:25:20	debug		System	Debug: **ReadConfigData, stat value for create_time was 1752223022	0	CHUAS-COMPUTER
+2025-07-11 11:25:20	debug		System	Debug: **ReadConfigData, stat value for last_update was 1752223221	0	CHUAS-COMPUTER
+2025-07-11 11:25:20	debug		System	Debug: **ReadConfigData, stat value for last_update_host was CHUAS-COMPUTER	0	CHUAS-COMPUTER
+2025-07-11 11:25:21	debug		System	Debug: **ReadConfigData, stat value for encryption_hash was 99CCFC0D033729754B6BB4832FE786A1	0	CHUAS-COMPUTER
+2025-07-11 11:25:21	debug		Debug	Debug: *99 ERROR: Authentication failed (and other possible unknown errors)	0	CHUAS-COMPUTER
+2025-07-11 11:25:21	debug		Debug	Debug: *Attributes sent to the RADIUS server: Reply-Message := "ERROR: Authentication failed (and other possible unknown errors)"	0	CHUAS-COMPUTER
